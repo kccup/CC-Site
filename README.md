@@ -29,6 +29,7 @@
 * [Built With](#built-with)
 * [Usage](#usage)
 * [Contributing](#contributing)
+* [Tools & Resources](#tools-and-resources)
 * [License](#license)
 * [Authors](#authors)
 * [Acknowledgements](#acknowledgements)
@@ -60,6 +61,11 @@ Contributions are what make the open source community such an amazing place to b
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+### Tools and Resources
+Here are some tools to help you on your journey
+
+* [Github Student Pack](https://education.github.com/pack) --> Student pack has Github Copilot for FREE! Just sign up with your my.stlcc.edu account and have your student ID ready to submit.
 
 ## License
 
