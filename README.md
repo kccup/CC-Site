@@ -13,7 +13,7 @@
     <a href="https://github.com/kccup/CC-Site"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/kccup/CC-Site">View Demo</a>
+    <a href="pclub.pages.dev">View Demo</a>
     .
     <a href="https://github.com/kccup/CC-Site/issues">Report Bug</a>
     .
