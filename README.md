@@ -67,7 +67,7 @@ Distributed under the MIT License. See [LICENSE](https://github.com/kccup/CC-Sit
 
 ## Authors
 
-* **KCCUP {or real name}** - ** - [KCCUP {or real name}](https://github.com/kccup/) - *Moral Support*
+* **KCCUP {or real name}** - ** - [KCCUP](https://github.com/kccup/) - *Moral Support*
 * **Arfhan Randle** - *Comp Sci* - [Arfhan Randle](https://github.com/arfhan) - *Everything*
 
 ## Acknowledgements
