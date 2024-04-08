@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/kccup/CC-Site">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.jpeg" alt="Logo" width="540" height="540">
   </a>
 
   <h3 align="center">STLCC-Site</h3>
