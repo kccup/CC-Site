@@ -63,7 +63,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/kccup/CC-Site/blob/main/LICENSE.md) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/kccup/CC-Site/blob/main/LICENSE) for more information.
 
 ## Authors
 
@@ -74,4 +74,3 @@ Distributed under the MIT License. See [LICENSE](https://github.com/kccup/CC-Sit
 
 * [ShaanCoding](https://github.com/ShaanCoding/)
 * [Kccup](https://github.com/kccup)
-* []()
