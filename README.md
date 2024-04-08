@@ -74,4 +74,3 @@ Distributed under the MIT License. See [LICENSE](https://github.com/kccup/CC-Sit
 
 * [ShaanCoding](https://github.com/ShaanCoding/)
 * [Kccup](https://github.com/kccup)
-* []()
