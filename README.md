@@ -54,13 +54,22 @@ Contributions are what make the open source community such an amazing place to b
 * Create individual PR for each suggestion.
 * Please also read through the [Code Of Conduct](https://github.com/kccup/CC-Site/blob/main/CODE_OF_CONDUCT.md) before posting your first idea as well.
 
-### Creating A Pull Request
+### Creating A Pull Request (2 ways)
 
+via terminal
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+via Github Desktop (app)
+1. Press code on any repo you want to contribute to
+2. Press open in Github Desktop, it'll lead you to the app
+3. You will see that Github Desktop already filled in the details to clone the repo; press Clone [it is a blue box].
+4. Edit the code using an external editor (this is the part where you edit the code to add to the original repo)
+5. When you're done editing, Github Desktop will automatically ask you if you want to commit to the main branch which is in the blue box. Only commit to master branch if you like the code.
+6. When you're done with the code and feel like its worthy to be in the original repo, press the push origin button.
 
 ### Tools and Resources
 Here are some tools to help you on your journey
