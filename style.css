@@ -83,3 +83,13 @@ footer {
     box-shadow: 0 0 10px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
     transition: background-color 0.5s, color 0.5s;
 }
+
+.qrCode img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.qrCode {
+    width: 200px;
+    height: 300px;
+}
