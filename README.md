@@ -74,7 +74,7 @@ via Github Desktop (app)
 ### Tools and Resources
 Here are some tools to help you on your journey
 
-* [Github Student Pack](https://education.github.com/pack) --> Student pack has Github Copilot for FREE! Just sign up with your my.stlcc.edu account and have your student ID ready to submit.
+* [Github Student Pack](https://education.github.com/pack) --> IF you're a college student, Github's student pack has Github Copilot for FREE! Just sign up with your my.stlcc.edu account and have your student ID ready to submit.
 
 ## License
 
