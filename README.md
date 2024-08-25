@@ -7,7 +7,7 @@
   <h3 align="center">STLCC-Site</h3>
 
   <p align="center">
-    A open sourced website for STLCC's Programming club for students gain their first contribution to a open source project!
+    A open sourced website for STLCC's Programming club for students to gain their first contribution to an open source project!
     <br/>
     <br/>
     <a href="https://github.com/kccup/CC-Site"><strong>Explore the docs »</strong></a>
