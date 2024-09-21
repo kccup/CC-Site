@@ -7,7 +7,7 @@
   <h3 align="center">STLCC-Site</h3>
 
   <p align="center">
-    A open sourced website for STLCC's Programming club for students gain their first contribution to a open source project!
+    A open sourced website for STLCC's Programming club for students to gain their first contribution to an open source project!
     <br/>
     <br/>
     <a href="https://github.com/kccup/CC-Site"><strong>Explore the docs »</strong></a>
@@ -49,7 +49,7 @@ To be continued....
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/kccup/CC-Site/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
+* If you have suggestions for adding, removing, or improving anything to the project, feel free to [open an issue](https://github.com/kccup/CC-Site/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
 * Please make sure you check your spelling and grammar.
 * Create individual PR for each suggestion.
 * Please also read through the [Code Of Conduct](https://github.com/kccup/CC-Site/blob/main/CODE_OF_CONDUCT.md) before posting your first idea as well.
@@ -74,7 +74,7 @@ via Github Desktop (app)
 ### Tools and Resources
 Here are some tools to help you on your journey
 
-* [Github Student Pack](https://education.github.com/pack) --> Student pack has Github Copilot for FREE! Just sign up with your my.stlcc.edu account and have your student ID ready to submit.
+* [Github Student Pack](https://education.github.com/pack) --> IF you're a college student, Github's student pack has Github Copilot for FREE! Just sign up with your my.stlcc.edu account and have your student ID ready to submit.
 
 ## License
 
