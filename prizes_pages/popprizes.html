@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" type="image/png" href="../favicon.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Add Google Fonts for cartoon style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Fredoka+One&family=Luckiest+Guy&display=swap" rel="stylesheet">
+    
+    <title>Popular Performance Prizes</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <script src="../script.js"></script>
+    <style>
+      /* Simplified Minions theme */
+      :root {
+        --minion-yellow: #F5E050;
+        --minion-blue: #1E3888;
+        --goggle-black: #333333;
+        --minion-white: #ffffff;
+      }
+      
+      body {
+        background-color: var(--minion-yellow);
+        color: var(--goggle-black);
+        font-family: 'Baloo 2', 'Comic Sans MS', cursive, sans-serif;
+        font-size: 1.1rem;
+      }
+      
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      header {
+        background-color: var(--minion-blue);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      /* Updated logo styling for center alignment and transparency */
+      .logo-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+      }
+      
+      .header-logo {
+        height: 100px; /* Slightly larger */
+        border-radius: 10px;
+        object-fit: contain; /* Ensures the logo fits properly */
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); /* Shadow that works with transparency */
+      }
+      
+      header h1 {
+        color: var(--minion-yellow);
+        text-align: center;
+        font-size: 2.5rem;
+        font-family: 'Fredoka One', cursive;
+        text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+        letter-spacing: 2px;
+        transform: rotate(-1deg);
+        margin-top: 10px;
+      }
+      
+      /* Minion-themed navbar */
+      .navbar {
+        background-color: var(--minion-yellow);
+        border-radius: 10px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+        width: 100%;
+      }
+      
+      .navbar ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .navbar li {
+        margin: 0 15px;
+      }
+      
+      .navbar a {
+        text-decoration: none;
+        color: var(--minion-blue);
+        font-weight: bold;
+        font-size: 1.2rem;
+        padding: 8px 15px;
+        border-radius: 30px;
+        transition: all 0.3s;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        border: 2px solid var(--minion-blue);
+        font-family: 'Luckiest Guy', cursive;
+        letter-spacing: 1px;
+      }
+      
+      .navbar a:hover {
+        background-color: var(--minion-blue);
+        color: var(--minion-yellow);
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(30, 56, 136, 0.7);
+      }
+      
+      .navbar a.active {
+        background-color: var(--minion-blue);
+        color: var(--minion-yellow);
+        box-shadow: 0 0 15px rgba(30, 56, 136, 0.7);
+      }
+      
+      .navbar a:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: 0.5s;
+      }
+      
+      .navbar a:hover:before {
+        left: 100%;
+      }
+      
+      footer {
+        background-color: var(--minion-blue);
+        color: var(--minion-yellow);
+        text-align: center;
+        padding: 15px;
+        border-radius: 10px;
+        font-weight: bold;
+        font-family: 'Baloo 2', cursive;
+        letter-spacing: 1px;
+      }
+      
+      /* Music player styles */
+      .music-player {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--minion-blue);
+        border-radius: 15px;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 1000;
+        border: 3px solid var(--minion-yellow);
+        transition: all 0.3s ease;
+      }
+      
+      .music-player:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+      }
+      
+      .player-controls {
+        display: flex;
+        gap: 8px;
+      }
+      
+      .player-button {
+        background-color: var(--minion-yellow);
+        color: var(--minion-blue);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+      }
+      
+      .player-button:hover {
+        transform: scale(1.1);
+        background-color: #fff;
+      }
+      
+      .song-info {
+        color: var(--minion-yellow);
+        font-family: 'Fredoka One', cursive;
+        font-size: 14px;
+        max-width: 150px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      
+      .minion-dance {
+        width: 40px;
+        height: 40px;
+        background-image: url('https://media.tenor.com/m4KxM27sQ2kAAAAi/minions-dancing-minion.gif');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      
+      .playing .minion-dance {
+        opacity: 1;
+      }
+      
+      /* Loading animation */
+      @keyframes pulse {
+        0% { opacity: 0.7; }
+        50% { opacity: 1; }
+        100% { opacity: 0.7; }
+      }
+      
+      .song-loading {
+        animation: pulse 1.2s infinite;
+      }
+      
+      /* Prize section styling */
+      .prize-section {
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .prize-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-top: 20px;
+      }
+      
+      .prize-card {
+        background-color: var(--minion-white);
+        border-radius: 15px;
+        padding: 30px;
+        width: 250px;
+        position: relative;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 3px solid var(--minion-blue);
+      }
+      
+      .prize-card:hover {
+        transform: translateY(-10px) rotate(2deg);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      }
+      
+      .prize-icon {
+        font-size: 4rem;
+        margin-bottom: 15px;
+        position: relative;
+      }
+      
+      .first-prize .prize-icon {
+        color: gold;
+        text-shadow: 0 0 10px rgba(255,215,0,0.7);
+      }
+      
+      .second-prize .prize-icon {
+        color: silver;
+        text-shadow: 0 0 10px rgba(192,192,192,0.7);
+      }
+      
+      .third-prize .prize-icon {
+        color: #CD7F32; /* Bronze color */
+        text-shadow: 0 0 10px rgba(205,127,50,0.7);
+      }
+      
+      .prize-rank {
+        position: absolute;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 1.8rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+        color: var(--minion-blue);
+      }
+      
+      .prize-card h2 {
+        color: var(--minion-blue);
+        font-family: 'Fredoka One', cursive;
+        margin: 15px 0;
+        transform: rotate(-2deg);
+        display: inline-block;
+        border-bottom: 3px dashed var(--minion-blue);
+        padding-bottom: 5px;
+      }
+      
+      .prize-description {
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.2rem;
+        color: var(--goggle-black);
+        margin-top: 10px;
+      }
+      
+      /* Shiny effect for prizes */
+      .prize-shine {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg, 
+          transparent, 
+          rgba(255,255,255,0.4), 
+          transparent
+        );
+        animation: shine-effect 3s infinite;
+      }
+      
+      .first-prize .prize-shine {
+        animation-delay: 0s;
+      }
+      
+      .second-prize .prize-shine {
+        animation-delay: 1s;
+      }
+      
+      .third-prize .prize-shine {
+        animation-delay: 2s;
+      }
+      
+      @keyframes shine-effect {
+        0% { left: -100%; }
+        20% { left: 100%; }
+        100% { left: 100%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <!-- Added OPMlogo.png above the title -->
+        <div class="logo-container">
+          <img src="../images/OPMlogo.png" alt="Popular Prizes Logo" class="header-logo">
+        </div>
+        <h1>Popular Performance Prizes</h1>
+        <div class="navbar">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/links.html">Links</a></li>
+            <li><a href="../pages/other.html">Other</a></li>
+            <li><a href="../pages/OMN.html">Open Mic Night</a></li>
+          </ul>
+        </div>
+      </header>
+      
+      <main>
+        <!-- Prize section with 1st, 2nd, and 3rd place prizes -->
+        <section class="prize-section">
+          <div class="prize-container">
+            <!-- 1st Prize -->
+            <div class="prize-card first-prize">
+              <div class="prize-icon">
+                <i class="fas fa-trophy"></i>
+                <span class="prize-rank">1st</span>
+              </div>
+              <h2>First Prize</h2>
+              <p class="prize-description">Macbook</p>
+              <div class="prize-shine"></div>
+            </div>
+            
+            <!-- 2nd Prize -->
+            <div class="prize-card second-prize">
+              <div class="prize-icon">
+                <i class="fas fa-medal"></i>
+                <span class="prize-rank">2nd</span>
+              </div>
+              <h2>Second Prize</h2>
+              <p class="prize-description">PS5</p>
+              <div class="prize-shine"></div>
+            </div>
+            
+            <!-- 3rd Prize -->
+            <div class="prize-card third-prize">
+              <div class="prize-icon">
+                <i class="fas fa-award"></i>
+                <span class="prize-rank">3rd</span>
+              </div>
+              <h2>Third Prize</h2>
+              <p class="prize-description">Epiphone Slash "AFD" Les Paul Special-II Performance Pack - Appetite Ambe</p>
+              <div class="prize-shine"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+      
+      <footer>
+        <p>Bello! Created by Programming Club at Meramec &copy; 2025</p>
+      </footer>
+    </div>
+    
+    <!-- Music Player that follows user -->
+    <div class="music-player" id="musicPlayer">
+      <div class="minion-dance" id="minionDance"></div>
+      <div class="song-info" id="songInfo">Loading music...</div>
+      <div class="player-controls">
+        <button class="player-button" id="playPauseBtn" title="Play/Pause">
+          <i class="fas fa-play"></i>
+        </button>
+        <button class="player-button" id="stopBtn" title="Stop">
+          <i class="fas fa-stop"></i>
+        </button>
+        <button class="player-button" id="nextBtn" title="Next Song">
+          <i class="fas fa-forward"></i>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Music Player Implementation
+      document.addEventListener('DOMContentLoaded', function() {
+        // List of songs with FIXED paths
+        const songs = [
+          { file: '../songs/Bananasong.mp3', name: 'Banana Song' },
+          { file: '../songs/weddingsong.mp3', name: 'Wedding Song' },
+          { file: '../songs/ymcasong.mp3', name: 'YMCA Minions' },
+        ];
+        
+        // Elements
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const songInfo = document.getElementById('songInfo');
+        const musicPlayer = document.getElementById('musicPlayer');
+        
+        // Add loading state
+        songInfo.classList.add('song-loading');
+        
+        // Audio object
+        const audio = new Audio();
+        
+        // Configure audio for better autoplay performance
+        audio.preload = 'auto';
+        audio.volume = 0.8;
+        
+        let isPlaying = false;
+        let currentSongIndex = -1;
+        let playedSongs = [];
+        let autoplayAttempted = false;
+        
+        // Pre-load all songs for better playback
+        function preloadSongs() {
+          songs.forEach(song => {
+            const tempAudio = new Audio();
+            tempAudio.preload = 'auto';
+            tempAudio.src = song.file;
+          });
+        }
+        
+        // Call preloadSongs immediately
+        preloadSongs();
+        
+        // Play a completely random song on page load with enhanced autoplay
+        function playRandomSongOnLoad() {
+          // Clear the played songs when the page loads to ensure true randomness
+          playedSongs = [];
+          localStorage.removeItem('minion_played_songs');
+          
+          // Pick a completely random song
+          const randomIndex = Math.floor(Math.random() * songs.length);
+          currentSongIndex = randomIndex;
+          
+          const song = songs[currentSongIndex];
+          audio.src = song.file;
+          
+          // Set song name immediately 
+          songInfo.textContent = song.name;
+          
+          // Add to played songs so it won't repeat until all others have played
+          playedSongs.push(song.file);
+          localStorage.setItem('minion_played_songs', JSON.stringify(playedSongs));
+          
+          // This will trigger as soon as the audio is ready to play
+          audio.addEventListener('canplaythrough', function onCanPlay() {
+            // Remove the event listener to prevent multiple triggers
+            audio.removeEventListener('canplaythrough', onCanPlay);
+            
+            // Remove loading indicator
+            songInfo.classList.remove('song-loading');
+            
+            // Enhanced autoplay approach
+            attemptAutoplay();
+          }, { once: true });
+          
+          // Handle loading errors
+          audio.addEventListener('error', function() {
+            songInfo.classList.remove('song-loading');
+            songInfo.textContent = "Ready to play";
+            console.error("Error loading audio");
+          });
+        }
+        
+        // Enhanced autoplay function with multiple attempts
+        function attemptAutoplay() {
+          if (autoplayAttempted) return;
+          autoplayAttempted = true;
+          
+          // Method 1: Standard autoplay
+          const playPromise = audio.play();
+          
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              // Success! Autoplay worked
+              isPlaying = true;
+              updatePlayPauseIcon();
+              musicPlayer.classList.add('playing');
+              console.log("Autoplay successful!");
+            }).catch(error => {
+              console.warn("Initial autoplay was prevented:", error);
+              
+              // Method 2: Try playing with muted first, then unmute
+              // (This often works in Chrome when standard autoplay fails)
+              audio.muted = true;
+              
+              audio.play().then(() => {
+                console.log("Muted autoplay successful, attempting to unmute...");
+                
+                // After a short delay, try to unmute
+                setTimeout(() => {
+                  audio.muted = false;
+                  isPlaying = true;
+                  updatePlayPauseIcon();
+                  musicPlayer.classList.add('playing');
+                }, 1000);
+              }).catch(mutedError => {
+                console.warn("Even muted autoplay failed:", mutedError);
+                
+                // Method 3: Last resort - wait for any user interaction
+                const handleUserInteraction = function() {
+                  audio.play().then(() => {
+                    isPlaying = true;
+                    updatePlayPauseIcon();
+                    musicPlayer.classList.add('playing');
+                    
+                    // Remove event listeners after successful play
+                    ['click', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+                      document.removeEventListener(event, handleUserInteraction);
+                    });
+                  });
+                };
+                
+                // Add multiple event listeners for any possible user interaction
+                ['click', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+                  document.addEventListener(event, handleUserInteraction, { once: true });
+                });
+                
+                // Show a message to encourage interaction
+                songInfo.textContent = "Click anywhere to play music!";
+              });
+            });
+          }
+        }
+        
+        // Get a random song that hasn't been played yet (for next songs)
+        function getRandomSong() {
+          // If all songs have been played, reset the list
+          if (playedSongs.length >= songs.length) {
+            playedSongs = [];
+          }
+          
+          // Filter out already played songs
+          const availableSongs = songs.filter(song => 
+            !playedSongs.includes(song.file)
+          );
+          
+          // Pick a random song from available ones
+          const randomIndex = Math.floor(Math.random() * availableSongs.length);
+          const selectedSong = availableSongs[randomIndex];
+          
+          // Add to played songs
+          playedSongs.push(selectedSong.file);
+          localStorage.setItem('minion_played_songs', JSON.stringify(playedSongs));
+          
+          return songs.findIndex(song => song.file === selectedSong.file);
+        }
+        
+        // Play the next song
+        function playNextSong() {
+          // Show loading state
+          songInfo.classList.add('song-loading');
+          
+          currentSongIndex = getRandomSong();
+          
+          if (currentSongIndex >= 0) {
+            const song = songs[currentSongIndex];
+            audio.src = song.file;
+            songInfo.textContent = song.name;
+            
+            // Wait for audio to be ready
+            audio.addEventListener('canplaythrough', function onNextSongReady() {
+              audio.removeEventListener('canplaythrough', onNextSongReady);
+              songInfo.classList.remove('song-loading');
+              
+              audio.play()
+                .then(() => {
+                  isPlaying = true;
+                  updatePlayPauseIcon();
+                  musicPlayer.classList.add('playing');
+                })
+                .catch(error => {
+                  console.error('Error playing audio:', error);
+                  isPlaying = false;
+                  updatePlayPauseIcon();
+                });
+            }, { once: true });
+            
+            // Handle loading errors
+            audio.addEventListener('error', function onNextSongError() {
+              audio.removeEventListener('error', onNextSongError);
+              songInfo.classList.remove('song-loading');
+              songInfo.textContent = 'Error loading song';
+              console.error('Error loading audio for next song');
+            }, { once: true });
+          }
+        }
+        
+        // Update play/pause button icon
+        function updatePlayPauseIcon() {
+          playPauseBtn.innerHTML = isPlaying 
+            ? '<i class="fas fa-pause"></i>' 
+            : '<i class="fas fa-play"></i>';
+        }
+        
+        // Play/Pause button click
+        playPauseBtn.addEventListener('click', function() {
+          if (audio.src) {
+            if (isPlaying) {
+              audio.pause();
+              musicPlayer.classList.remove('playing');
+            } else {
+              audio.play().catch(error => {
+                console.error('Error playing audio:', error);
+              });
+              musicPlayer.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+            updatePlayPauseIcon();
+          } else {
+            playNextSong();
+          }
+        });
+        
+        // Stop button click
+        stopBtn.addEventListener('click', function() {
+          audio.pause();
+          audio.currentTime = 0;
+          isPlaying = false;
+          updatePlayPauseIcon();
+          musicPlayer.classList.remove('playing');
+        });
+        
+        // Next button click
+        nextBtn.addEventListener('click', function() {
+          playNextSong();
+        });
+        
+        // When song ends, play next song
+        audio.addEventListener('ended', function() {
+          playNextSong();
+        });
+        
+        // Start with a random song when page loads
+        setTimeout(playRandomSongOnLoad, 500);
+      });
+    </script>
+  </body>
+</html>
