@@ -159,3 +159,235 @@ footer {
     color: #555; /* Text color */
     text-align: center; /* Center the text */
 }
+/* Mobile Responsive CSS for STLCC Programming Club Website */
+
+/* Ensure proper viewport behavior on all devices */
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+  }
+  
+  /* Mobile-first approach - base styles for small screens */
+  
+  /* Container adjustments */
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  
+  /* Responsive body adjustments */
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  
+  /* Responsive header */
+  header {
+    width: 100%;
+    padding: 15px 10px;
+    box-sizing: border-box;
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+    word-wrap: break-word;
+    margin: 10px 0;
+  }
+  
+  /* Responsive navbar for mobile */
+  .navbar {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    padding: 5px;
+    margin: 10px auto;
+    box-sizing: border-box;
+  }
+  
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .navbar li {
+    float: none;
+    width: 100%;
+    margin: 3px 0;
+  }
+  
+  .navbar a {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  /* Responsive sections and content */
+  section {
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Responsive images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Responsive QR code */
+  .qrCode {
+    width: 80%;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  /* Responsive buttons */
+  .button, #changeBackground, #rainbowButton {
+    width: 100%;
+    max-width: 250px;
+    margin: 10px auto;
+    box-sizing: border-box;
+    display: block;
+  }
+  
+  /* Social media links */
+  .social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .social-links a {
+    margin: 8px;
+  }
+  
+  /* Responsive footer */
+  footer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 10px;
+    margin-top: auto;
+  }
+  
+  /* Music player adjustments for mobile */
+  .music-player {
+    bottom: 10px;
+    right: 10px;
+    padding: 8px;
+    max-width: 90%;
+  }
+  
+  .song-info {
+    max-width: 120px;
+  }
+  
+  /* Prize cards responsive */
+  .prize-card {
+    width: 100%;
+    max-width: 280px;
+    margin: 10px auto;
+  }
+  
+  .prize-container {
+    flex-direction: column;
+  }
+  
+  /* Map container responsive */
+  .map-container {
+    padding-bottom: 75%; /* Taller aspect ratio for mobile */
+  }
+  
+  /* Media queries for tablets and larger devices */
+  @media (min-width: 600px) {
+    .container {
+      padding: 15px;
+      max-width: 90%;
+    }
+    
+    header h1 {
+      font-size: 2rem;
+    }
+    
+    /* Horizontal navbar for tablets+ */
+    .navbar ul {
+      flex-direction: row;
+      justify-content: center;
+    }
+    
+    .navbar li {
+      width: auto;
+      float: left;
+    }
+    
+    .navbar a {
+      width: auto;
+    }
+    
+    /* Two prize cards per row on tablet */
+    .prize-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    
+    .prize-card {
+      width: 45%;
+    }
+    
+    /* Map container more standard ratio */
+    .map-container {
+      padding-bottom: 60%;
+    }
+  }
+  
+  /* Media queries for desktop and larger tablets */
+  @media (min-width: 900px) {
+    .container {
+      max-width: 800px;
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+    }
+    
+    /* Return to original desktop layout */
+    .prize-container {
+      flex-direction: row;
+    }
+    
+    .prize-card {
+      width: 250px;
+    }
+    
+    /* Original map aspect ratio */
+    .map-container {
+      padding-bottom: 56.25%;
+    }
+  }
+  
+  /* Fix for minion-list on mobile */
+  .minion-list li {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 35px;
+  }
+  
+  .event-detail {
+    min-width: 70px;
+    margin-right: 5px;
+  }
+  
+  /* Prevent horizontal scrolling caused by animations */
+  .shine, .navbar a:before {
+    overflow-x: hidden;
+  }
