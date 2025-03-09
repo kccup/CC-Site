@@ -341,6 +341,110 @@
       .song-loading {
         animation: pulse 1.2s infinite;
       }
+      
+      /* Minion-themed list styling - UPDATED for better alignment */
+      .minion-list {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 15px 0;
+      }
+      
+      /* Basic list item styling - UPDATED for better alignment */
+      .minion-list li {
+        margin: 12px 0;
+        padding-left: 40px;
+        position: relative;
+        transition: transform 0.2s ease;
+        display: flex;
+        align-items: baseline;
+      }
+      
+      /* Banana emoji as list marker */
+      .minion-list li:before {
+        content: "🍌";
+        position: absolute;
+        left: 0;
+        font-size: 24px;
+        transition: transform 0.2s ease;
+      }
+      
+      /* Subtle hover effect */
+      .minion-list li:hover {
+        transform: translateX(5px);
+      }
+      
+      .minion-list li:hover:before {
+        transform: rotate(10deg);
+      }
+      
+      /* Event detail label styling - UPDATED for better alignment */
+      .event-detail {
+        font-weight: bold;
+        color: var(--minion-blue);
+        font-family: 'Fredoka One', cursive;
+        margin-right: 6px;
+        min-width: 90px; /* Set a fixed width for the labels */
+        display: inline-block;
+        text-align: left;
+      }
+      
+      /* Add CSS for prize buttons - consolidated styles */
+      .prize-button {
+        background-color: var(--minion-blue);
+        color: var(--minion-yellow);
+        border: 2px solid var(--minion-yellow);
+        padding: 8px 15px;
+        display: inline-block;
+        transform: rotate(-2deg);
+        box-shadow: 0 0 15px rgba(245, 224, 80, 0.7);
+        position: relative;
+        overflow: hidden;
+        margin-top: 5px;
+        text-align: center;
+        width: auto;
+      }
+      
+      .prize-button:hover {
+        transform: scale(1.1) rotate(2deg) !important;
+        box-shadow: 0 0 20px rgba(245, 224, 80, 1) !important;
+      }
+      
+      .fa-bounce {
+        animation: bounce 1s infinite alternate;
+      }
+      
+      .prize-text {
+        font-weight: bold;
+        text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+        letter-spacing: 1px;
+      }
+      
+      .shine {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+        animation: shine 2s infinite;
+      }
+      
+      @keyframes shine {
+        0% { left: -100%; }
+        100% { left: 100%; }
+      }
+      
+      .prize-container {
+        display: flex;
+        flex-direction: column;
+        margin: 5px 0;
+      }
+      
+      /* Food image container */
+      .food-image-container {
+        text-align: center;
+        margin: 20px 0;
+      }
     </style>
   </head>
   <body>
@@ -405,141 +509,57 @@
         
         <section>
           <h2>What to Expect</h2>
-          <ul>
-            <style>
-              /* Minion-themed list styling */
-              .minion-list {
-                list-style-type: none;
-                padding-left: 0;
-                margin: 15px 0;
-              }
-              
-              /* Basic list item styling */
-              .minion-list li {
-                margin: 12px 0;
-                padding-left: 40px;
-                position: relative;
-                transition: transform 0.2s ease;
-              }
-              
-              /* Banana emoji as list marker */
-              .minion-list li:before {
-                content: "🍌";
-                position: absolute;
-                left: 0;
-                font-size: 24px;
-                transition: transform 0.2s ease;
-              }
-              
-              /* Subtle hover effect */
-              .minion-list li:hover {
-                transform: translateX(5px);
-              }
-              
-              .minion-list li:hover:before {
-                transform: rotate(10deg);
-              }
-              
-              /* Event detail label styling */
-              .event-detail {
-                font-weight: bold;
-                color: var(--minion-blue);
-                font-family: 'Fredoka One', cursive;
-                margin-right: 6px;
-              }
-            </style>
-
-            <ul class="minion-list">
-              <li><span class="event-detail"><i class="far fa-clock"></i> TIME:</span> 5-minute MAX performance slots</li>
-              <li class="highlight-item"><span class="event-detail"><i class="fas fa-paint-brush"></i> DECOR:</span> Minion-themed decorations everywhere!</li>
-              <li><span class="event-detail"><i class="fas fa-cookie-bite"></i> YUM:</span> Snacks and Refreshments</li>
-              <li class="highlight-item"><span class="event-detail"><i class="fas fa-utensils"></i> FREE FOOD:</span> Canes and Dominos</li>
-              <li><span class="event-detail"><i class="fas fa-music"></i> TALENTS:</span> Music and Dance Performances</li>
-              <li class="highlight-item"><span class="event-detail"><i class="fas fa-trophy"></i> WINNERS:</span> Prizes for popular performances</li>
-            </ul>
-            <!-- Add CSS for prize buttons - consolidated styles -->
-            <style>
-              .prize-button {
-              background-color: var(--minion-blue);
-              color: var(--minion-yellow);
-              border: 2px solid var(--minion-yellow);
-              padding: 8px 15px;
-              display: inline-block;
-              transform: rotate(-2deg);
-              box-shadow: 0 0 15px rgba(245, 224, 80, 0.7);
-              position: relative;
-              overflow: hidden;
-              margin-top: 5px;
-              text-align: center;
-              width: auto;
-              }
-              
-              .prize-button:hover {
-              transform: scale(1.1) rotate(2deg) !important;
-              box-shadow: 0 0 20px rgba(245, 224, 80, 1) !important;
-              }
-              
-              .fa-bounce {
-              animation: bounce 1s infinite alternate;
-              }
-              
-              .prize-text {
-              font-weight: bold;
-              text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
-              letter-spacing: 1px;
-              }
-              
-              .shine {
-              position: absolute;
-              top: 0;
-              left: -100%;
-              width: 100%;
-              height: 100%;
-              background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-              animation: shine 2s infinite;
-              }
-              
-              @keyframes shine {
-              0% { left: -100%; }
-              100% { left: 100%; }
-              }
-              
-              .prize-container {
-              display: flex;
-              flex-direction: column;
-              margin: 5px 0;
-              }
-            </style>
-     
-            <!-- Popular performances prize -->
-          
-              <div class="prize-container">
-        
-              <a href="popprizes.html" class="map-link prize-button">
-                <i class="fas fa-gift fa-bounce"></i> 
-                <span class="prize-text">POPULAR PERFORMANCE PRIZES!</span>
-                <span class="shine"></span>
-              </a>
-              </div>
-            
-            
-            <!-- Raffle chances prize -->
-     
-              <div class="prize-container">
-              <a href="raffleprizes.html" class="map-link prize-button">
-                <i class="fas fa-gift fa-bounce"></i> 
-                <span class="prize-text">RAFFLE PRIZES!</span>
-                <span class="shine"></span>
-              </a>
-              </div>
-  
- 
-            <li style="list-style-type: none; margin-top: 15px; text-align: left; margin-left: 20px;">
-              <img src="../images/CanesAndDominos.png" alt="Minion enjoying food" 
-                style="width: 200px; height: 120px; object-fit: cover; object-position: center; border-radius: 10px; border: 3px dashed var(--minion-blue);
-                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+          <ul class="minion-list">
+            <li>
+              <span class="event-detail"><i class="far fa-clock"></i> TIME:</span>
+              <span>5-minute MAX performance slots</span>
+            </li>
+            <li class="highlight-item">
+              <span class="event-detail"><i class="fas fa-paint-brush"></i> DECOR:</span>
+              <span>Minion-themed decorations everywhere!</span>
+            </li>
+            <li>
+              <span class="event-detail"><i class="fas fa-cookie-bite"></i> YUM:</span>
+              <span>Snacks and Refreshments</span>
+            </li>
+            <li class="highlight-item">
+              <span class="event-detail"><i class="fas fa-utensils"></i> FREE FOOD:</span>
+              <span>Canes and Dominos</span>
+            </li>
+            <li>
+              <span class="event-detail"><i class="fas fa-music"></i> TALENTS:</span>
+              <span>Music and Dance Performances</span>
+            </li>
+            <li class="highlight-item">
+              <span class="event-detail"><i class="fas fa-trophy"></i> WINNERS:</span>
+              <span>Prizes for popular performances</span>
             </li>
           </ul>
+          
+          <!-- Popular performances prize -->
+          <div class="prize-container">
+            <a href="popprizes.html" class="map-link prize-button">
+              <i class="fas fa-gift fa-bounce"></i> 
+              <span class="prize-text">POPULAR PERFORMANCE PRIZES!</span>
+              <span class="shine"></span>
+            </a>
+          </div>
+          
+          <!-- Raffle chances prize -->
+          <div class="prize-container">
+            <a href="raffleprizes.html" class="map-link prize-button">
+              <i class="fas fa-gift fa-bounce"></i> 
+              <span class="prize-text">RAFFLE PRIZES!</span>
+              <span class="shine"></span>
+            </a>
+          </div>
+          
+          <!-- Food image in a centered container -->
+          <div class="food-image-container">
+            <img src="../images/CanesAndDominos.png" alt="Minion enjoying food" 
+              style="width: 200px; height: 120px; object-fit: cover; object-position: center; border-radius: 10px; border: 3px dashed var(--minion-blue);
+               box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+          </div>
         </section>
       </main>
       <footer>
@@ -608,7 +628,7 @@
         // Call preloadSongs immediately
         preloadSongs();
         
-        // Play a completely random song on page load with better error handling
+        // Play a completely random song on page load with enhanced autoplay
         function playRandomSongOnLoad() {
           // Clear the played songs when the page loads to ensure true randomness
           playedSongs = [];
@@ -636,36 +656,8 @@
             // Remove loading indicator
             songInfo.classList.remove('song-loading');
             
-            // Play the song if this is the first autoplay attempt
-            if (!autoplayAttempted) {
-              autoplayAttempted = true;
-              
-              // Try to play
-              const playPromise = audio.play();
-              
-              if (playPromise !== undefined) {
-                playPromise.then(() => {
-                  // Success! Autoplay worked
-                  isPlaying = true;
-                  updatePlayPauseIcon();
-                  musicPlayer.classList.add('playing');
-                }).catch(error => {
-                  // Autoplay was prevented - common in browsers
-                  console.warn("Autoplay was prevented by the browser:", error);
-                  
-                  // Set up user interaction handler to play audio on any click
-                  document.addEventListener('click', function playOnFirstClick() {
-                    audio.play().then(() => {
-                      isPlaying = true;
-                      updatePlayPauseIcon();
-                      musicPlayer.classList.add('playing');
-                      // Remove this listener after first click
-                      document.removeEventListener('click', playOnFirstClick);
-                    });
-                  });
-                });
-              }
-            }
+            // Enhanced autoplay approach
+            attemptAutoplay();
           }, { once: true });
           
           // Handle loading errors
@@ -674,6 +666,67 @@
             songInfo.textContent = "Ready to play";
             console.error("Error loading audio");
           });
+        }
+        
+        // Enhanced autoplay function with multiple attempts
+        function attemptAutoplay() {
+          if (autoplayAttempted) return;
+          autoplayAttempted = true;
+          
+          // Method 1: Standard autoplay
+          const playPromise = audio.play();
+          
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              // Success! Autoplay worked
+              isPlaying = true;
+              updatePlayPauseIcon();
+              musicPlayer.classList.add('playing');
+              console.log("Autoplay successful!");
+            }).catch(error => {
+              console.warn("Initial autoplay was prevented:", error);
+              
+              // Method 2: Try playing with muted first, then unmute
+              // (This often works in Chrome when standard autoplay fails)
+              audio.muted = true;
+              
+              audio.play().then(() => {
+                console.log("Muted autoplay successful, attempting to unmute...");
+                
+                // After a short delay, try to unmute
+                setTimeout(() => {
+                  audio.muted = false;
+                  isPlaying = true;
+                  updatePlayPauseIcon();
+                  musicPlayer.classList.add('playing');
+                }, 1000);
+              }).catch(mutedError => {
+                console.warn("Even muted autoplay failed:", mutedError);
+                
+                // Method 3: Last resort - wait for any user interaction
+                const handleUserInteraction = function() {
+                  audio.play().then(() => {
+                    isPlaying = true;
+                    updatePlayPauseIcon();
+                    musicPlayer.classList.add('playing');
+                    
+                    // Remove event listeners after successful play
+                    ['click', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+                      document.removeEventListener(event, handleUserInteraction);
+                    });
+                  });
+                };
+                
+                // Add multiple event listeners for any possible user interaction
+                ['click', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+                  document.addEventListener(event, handleUserInteraction, { once: true });
+                });
+                
+                // Show a message to encourage interaction
+                songInfo.textContent = "Click anywhere to play music!";
+              });
+            });
+          }
         }
         
         // Get a random song that hasn't been played yet (for next songs)
@@ -784,8 +837,55 @@
           playNextSong();
         });
         
-        // Start with a random song when page loads - increased delay for reliability
-        setTimeout(playRandomSongOnLoad, 800);
+        // Start with a random song when page loads
+        // Using multiple timeouts at different intervals for better chances of autoplay success
+        setTimeout(playRandomSongOnLoad, 500);
+        
+        // Add notification for users about the music player
+        const notifyAboutMusic = () => {
+          if (!isPlaying) {
+            // Create a temporary notification
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.bottom = '80px';
+            notification.style.right = '20px';
+            notification.style.backgroundColor = 'rgba(30, 56, 136, 0.9)';
+            notification.style.color = '#F5E050';
+            notification.style.padding = '10px 15px';
+            notification.style.borderRadius = '10px';
+            notification.style.fontFamily = "'Baloo 2', cursive";
+            notification.style.zIndex = '1000';
+            notification.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
+            notification.style.animation = 'fadeIn 0.5s';
+            notification.innerHTML = '🎵 Click to enjoy minion music! 🎵';
+            document.body.appendChild(notification);
+            
+            // Add animation
+            const style = document.createElement('style');
+            style.textContent = `
+              @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+              }
+              @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(20px); }
+              }
+            `;
+            document.head.appendChild(style);
+            
+            // Remove after 4 seconds
+            setTimeout(() => {
+              notification.style.animation = 'fadeOut 0.5s';
+              setTimeout(() => {
+                document.body.removeChild(notification);
+              }, 500);
+            }, 4000);
+          }
+        };
+        
+        // Show notification after a delay
+        setTimeout(notifyAboutMusic, 2000);
       });
     </script>
   </body>
