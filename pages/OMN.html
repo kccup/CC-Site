@@ -346,35 +346,38 @@
   <body>
     <div class="container">
       <header>
-        <!-- Logo has been removed -->
-        <h1>Minion-Themed Open Mic Night!</h1>
-        <div class="navbar">
-          <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="links.html">Links</a></li>
-            <li><a href="other.html">Other</a></li>
-            <li><a href="OMN.html" class="active">Open Mic Night</a></li>
-          </ul>
-        </div>
+      <!-- Added OPMlogo.png above the title -->
+      <div class="logo-container">
+        <img src="../images/OPMlogo.png" alt="Open Mic Night Logo" class="header-logo">
+      </div>
+      <h1>Minion-Themed Open Mic Night!</h1>
+      <div class="navbar">
+        <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="links.html">Links</a></li>
+        <li><a href="other.html">Other</a></li>
+        <li><a href="OMN.html" class="active">Open Mic Night</a></li>
+        </ul>
+      </div>
       </header>
       <main>
-        <section>
-          <h2><span class="banana">OPEN MIC NIGHT</span> Open Mic Night</h2>
-          <p>Come join the most <span class="banana">MINION-TASTIC</span> Open Mic Night!</p>
-          
-          <div class="minion-quote">
-            "Go tell your friends about it!" - Kevin (Translated)
-          </div>
-          
-          <p><strong>Date:</strong> April 1st, 2025</p>
-          <p><strong>Time:</strong> 3PM-5PM</p>
-          <p><strong>Location:</strong> STLCC Meramec Campus, Cafeteria</p>
-        </section>
+      <section>
+        <h2><span class="banana">OPEN MIC NIGHT</span> Open Mic Night</h2>
+        <p>Come join the most <span class="banana">MINION-TASTIC</span> Open Mic Night!</p>
         
-        <!-- New Location Section with Map -->
-        <section>
-          <h2>Meramec Location:</h2>
-          <div class="address-container">
+        <div class="minion-quote">
+        "Go tell your friends about it!" - Kevin (Translated)
+        </div>
+        
+        <p><strong>Date:</strong> April 1st, 2025</p>
+        <p><strong>Time:</strong> 3PM-5PM</p>
+        <p><strong>Location:</strong> STLCC Meramec Campus, Cafeteria</p>
+      </section>
+      
+      <!-- New Location Section with Map -->
+      <section>
+        <h2>Meramec Location:</h2>
+        <div class="address-container">
             <i class="fas fa-map-marker-alt"></i>
             <strong>Address:</strong> 11333 Big Bend Rd, Kirkwood, MO 63122
           </div>
@@ -403,10 +406,134 @@
         <section>
           <h2>What to Expect</h2>
           <ul>
-            <li>5-minute MAX performance slots</li>
-            <li>Minion-themed decorations</li>
-            <li>Snacks and Refreshments</li>
-            <li>FREE Food from Canes and Dominos</li>
+            <style>
+              /* Minion-themed list styling */
+              .minion-list {
+                list-style-type: none;
+                padding-left: 0;
+                margin: 15px 0;
+              }
+              
+              /* Basic list item styling */
+              .minion-list li {
+                margin: 12px 0;
+                padding-left: 40px;
+                position: relative;
+                transition: transform 0.2s ease;
+              }
+              
+              /* Banana emoji as list marker */
+              .minion-list li:before {
+                content: "🍌";
+                position: absolute;
+                left: 0;
+                font-size: 24px;
+                transition: transform 0.2s ease;
+              }
+              
+              /* Subtle hover effect */
+              .minion-list li:hover {
+                transform: translateX(5px);
+              }
+              
+              .minion-list li:hover:before {
+                transform: rotate(10deg);
+              }
+              
+              /* Event detail label styling */
+              .event-detail {
+                font-weight: bold;
+                color: var(--minion-blue);
+                font-family: 'Fredoka One', cursive;
+                margin-right: 6px;
+              }
+            </style>
+
+            <ul class="minion-list">
+              <li><span class="event-detail"><i class="far fa-clock"></i> TIME:</span> 5-minute MAX performance slots</li>
+              <li class="highlight-item"><span class="event-detail"><i class="fas fa-paint-brush"></i> DECOR:</span> Minion-themed decorations everywhere!</li>
+              <li><span class="event-detail"><i class="fas fa-cookie-bite"></i> YUM:</span> Snacks and Refreshments</li>
+              <li class="highlight-item"><span class="event-detail"><i class="fas fa-utensils"></i> FREE FOOD:</span> Canes and Dominos</li>
+              <li><span class="event-detail"><i class="fas fa-music"></i> TALENTS:</span> Music and Dance Performances</li>
+              <li class="highlight-item"><span class="event-detail"><i class="fas fa-trophy"></i> WINNERS:</span> Prizes for popular performances</li>
+            </ul>
+            <!-- Add CSS for prize buttons - consolidated styles -->
+            <style>
+              .prize-button {
+              background-color: var(--minion-blue);
+              color: var(--minion-yellow);
+              border: 2px solid var(--minion-yellow);
+              padding: 8px 15px;
+              display: inline-block;
+              transform: rotate(-2deg);
+              box-shadow: 0 0 15px rgba(245, 224, 80, 0.7);
+              position: relative;
+              overflow: hidden;
+              margin-top: 5px;
+              text-align: center;
+              width: auto;
+              }
+              
+              .prize-button:hover {
+              transform: scale(1.1) rotate(2deg) !important;
+              box-shadow: 0 0 20px rgba(245, 224, 80, 1) !important;
+              }
+              
+              .fa-bounce {
+              animation: bounce 1s infinite alternate;
+              }
+              
+              .prize-text {
+              font-weight: bold;
+              text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+              letter-spacing: 1px;
+              }
+              
+              .shine {
+              position: absolute;
+              top: 0;
+              left: -100%;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+              animation: shine 2s infinite;
+              }
+              
+              @keyframes shine {
+              0% { left: -100%; }
+              100% { left: 100%; }
+              }
+              
+              .prize-container {
+              display: flex;
+              flex-direction: column;
+              margin: 5px 0;
+              }
+            </style>
+     
+            <!-- Popular performances prize -->
+          
+              <div class="prize-container">
+        
+              <a href="popprizes.html" class="map-link prize-button">
+                <i class="fas fa-gift fa-bounce"></i> 
+                <span class="prize-text">POPULAR PERFORMANCE PRIZES!</span>
+                <span class="shine"></span>
+              </a>
+              </div>
+            
+            
+            <!-- Raffle chances prize -->
+     
+              <div class="prize-container">
+              <a href="raffleprizes.html" class="map-link prize-button">
+                <i class="fas fa-gift fa-bounce"></i> 
+                <span class="prize-text">RAFFLE PRIZES!</span>
+                <span class="shine"></span>
+              </a>
+              </div>
+  
+ 
             <li style="list-style-type: none; margin-top: 15px; text-align: left; margin-left: 20px;">
               <img src="../images/CanesAndDominos.png" alt="Minion enjoying food" 
                 style="width: 200px; height: 120px; object-fit: cover; object-position: center; border-radius: 10px; border: 3px dashed var(--minion-blue);
