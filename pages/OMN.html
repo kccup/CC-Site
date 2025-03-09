@@ -445,9 +445,143 @@
         text-align: center;
         margin: 20px 0;
       }
+
+      /* Minion-themed countdown timer styles */
+      .countdown-timer {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: var(--minion-blue);
+        color: var(--minion-yellow);
+        padding: 10px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 1000;
+        font-family: 'Fredoka One', cursive;
+        text-align: center;
+        border: 3px solid var(--minion-yellow);
+        transform: rotate(2deg);
+        max-width: 220px;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% { transform: rotate(2deg) translateY(0px); }
+        50% { transform: rotate(-1deg) translateY(-5px); }
+        100% { transform: rotate(2deg) translateY(0px); }
+      }
+
+      .countdown-title {
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: var(--minion-yellow);
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        letter-spacing: 1px;
+      }
+
+      .countdown-date {
+        font-size: 12px;
+        margin-bottom: 8px;
+        color: white;
+        background-color: var(--goggle-black);
+        border-radius: 10px;
+        padding: 2px 5px;
+        display: inline-block;
+      }
+
+      .countdown-units {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+      }
+
+      .countdown-unit {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .countdown-number {
+        background-color: var(--minion-yellow);
+        color: var(--minion-blue);
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 2px;
+        border: 2px solid var(--goggle-black);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      }
+
+      .countdown-label {
+        font-size: 12px;
+        color: white;
+      }
+
+      .countdown-days-display {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .countdown-hms-display {
+        display: none;
+        justify-content: center;
+        gap: 5px;
+      }
+
+      .countdown-message {
+        margin-top: 5px;
+        font-size: 12px;
+        color: white;
+        animation: pulse 1.5s infinite;
+      }
+
+      .countdown-emoji {
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 3px;
+        animation: bounce 1.2s infinite alternate;
+      }
     </style>
   </head>
   <body>
+    <!-- Countdown Timer -->
+    <div class="countdown-timer" id="countdown-timer">
+      <div class="countdown-title">OPEN MIC NIGHT</div>
+      <div class="countdown-date">April 1, 2025 @ 3PM CDT</div>
+      
+      <!-- Days display (shown when more than 1 day remains) -->
+      <div class="countdown-days-display" id="countdown-days-display">
+        <div class="countdown-unit">
+          <div class="countdown-number" id="countdown-days">00</div>
+          <div class="countdown-label">Days</div>
+        </div>
+      </div>
+      
+      <!-- Hours, minutes, seconds display (shown when less than 1 day remains) -->
+      <div class="countdown-hms-display" id="countdown-hms-display">
+        <div class="countdown-unit">
+          <div class="countdown-number" id="countdown-hours">00</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-unit">
+          <div class="countdown-number" id="countdown-minutes">00</div>
+          <div class="countdown-label">Mins</div>
+        </div>
+        <div class="countdown-unit">
+          <div class="countdown-number" id="countdown-seconds">00</div>
+          <div class="countdown-label">Secs</div>
+        </div>
+      </div>
+      
+      <div class="countdown-message">Until the BANANA fun! <span class="countdown-emoji">🍌</span></div>
+    </div>
+
     <div class="container">
       <header>
       <!-- Added OPMlogo.png above the title -->
@@ -539,7 +673,7 @@
           
           <!-- Popular performances prize -->
           <div class="prize-container">
-            <a href="/prizes_pages/popprizes.html" class="map-link prize-button">
+            <a href="../prizes_pages/popprizes.html" class="map-link prize-button">
               <i class="fas fa-gift fa-bounce"></i> 
               <span class="prize-text">POPULAR PERFORMANCE PRIZES!</span>
               <span class="shine"></span>
@@ -548,7 +682,7 @@
           
           <!-- Raffle chances prize -->
           <div class="prize-container">
-            <a href="/prizes_pages/raffleprizes.html" class="map-link prize-button">
+            <a href="raffleprizes.html" class="map-link prize-button">
               <i class="fas fa-gift fa-bounce"></i> 
               <span class="prize-text">RAFFLE PRIZES!</span>
               <span class="shine"></span>
@@ -586,6 +720,64 @@
     </div>
 
     <script>
+      // Countdown Timer Implementation
+      document.addEventListener('DOMContentLoaded', function() {
+        // Set target date: April 1st, 2025 at 3PM CDT
+        const targetDate = new Date('2025-04-01T15:00:00-05:00'); // CDT is UTC-5
+        
+        // DOM elements
+        const daysDisplay = document.getElementById('countdown-days-display');
+        const hmsDisplay = document.getElementById('countdown-hms-display');
+        const daysElement = document.getElementById('countdown-days');
+        const hoursElement = document.getElementById('countdown-hours');
+        const minutesElement = document.getElementById('countdown-minutes');
+        const secondsElement = document.getElementById('countdown-seconds');
+        const messageElement = document.querySelector('.countdown-message');
+        
+        function updateCountdown() {
+          // Get current date and time
+          const now = new Date();
+          
+          // Calculate time difference in milliseconds
+          const difference = targetDate - now;
+          
+          // Check if the event has already happened
+          if (difference <= 0) {
+            daysDisplay.style.display = 'none';
+            hmsDisplay.style.display = 'none';
+            messageElement.textContent = "Event has started! 🎉";
+            return;
+          }
+          
+          // Calculate days, hours, minutes, seconds
+          const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+          
+          // Update the HTML elements
+          daysElement.textContent = days.toString().padStart(2, '0');
+          hoursElement.textContent = hours.toString().padStart(2, '0');
+          minutesElement.textContent = minutes.toString().padStart(2, '0');
+          secondsElement.textContent = seconds.toString().padStart(2, '0');
+          
+          // Show days display if more than 1 day remains, otherwise show hours, minutes, seconds
+          if (days >= 1) {
+            daysDisplay.style.display = 'flex';
+            hmsDisplay.style.display = 'none';
+          } else {
+            daysDisplay.style.display = 'none';
+            hmsDisplay.style.display = 'flex';
+          }
+        }
+        
+        // Update countdown immediately
+        updateCountdown();
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+      });
+
       // Music Player Implementation
       document.addEventListener('DOMContentLoaded', function() {
         // List of songs with FIXED paths
@@ -593,7 +785,6 @@
           { file: '../songs/Bananasong.mp3', name: 'Banana Song' },
           { file: '../songs/weddingsong.mp3', name: 'Wedding Song' },
           { file: '../songs/ymcasong.mp3', name: 'YMCA Minions' },
-          { file: '../songs/underwearsong.mp3', name: 'Underwear Song' },
         ];
         
         // Elements
@@ -700,195 +891,4 @@
                   audio.muted = false;
                   isPlaying = true;
                   updatePlayPauseIcon();
-                  musicPlayer.classList.add('playing');
-                }, 1000);
-              }).catch(mutedError => {
-                console.warn("Even muted autoplay failed:", mutedError);
-                
-                // Method 3: Last resort - wait for any user interaction
-                const handleUserInteraction = function() {
-                  audio.play().then(() => {
-                    isPlaying = true;
-                    updatePlayPauseIcon();
-                    musicPlayer.classList.add('playing');
-                    
-                    // Remove event listeners after successful play
-                    ['click', 'touchstart', 'keydown', 'scroll'].forEach(event => {
-                      document.removeEventListener(event, handleUserInteraction);
-                    });
-                  });
-                };
-                
-                // Add multiple event listeners for any possible user interaction
-                ['click', 'touchstart', 'keydown', 'scroll'].forEach(event => {
-                  document.addEventListener(event, handleUserInteraction, { once: true });
-                });
-                
-                // Show a message to encourage interaction
-                songInfo.textContent = "Click anywhere to play music!";
-              });
-            });
-          }
-        }
-        
-        // Get a random song that hasn't been played yet (for next songs)
-        function getRandomSong() {
-          // If all songs have been played, reset the list
-          if (playedSongs.length >= songs.length) {
-            playedSongs = [];
-          }
-          
-          // Filter out already played songs
-          const availableSongs = songs.filter(song => 
-            !playedSongs.includes(song.file)
-          );
-          
-          // Pick a random song from available ones
-          const randomIndex = Math.floor(Math.random() * availableSongs.length);
-          const selectedSong = availableSongs[randomIndex];
-          
-          // Add to played songs
-          playedSongs.push(selectedSong.file);
-          localStorage.setItem('minion_played_songs', JSON.stringify(playedSongs));
-          
-          return songs.findIndex(song => song.file === selectedSong.file);
-        }
-        
-        // Play the next song
-        function playNextSong() {
-          // Show loading state
-          songInfo.classList.add('song-loading');
-          
-          currentSongIndex = getRandomSong();
-          
-          if (currentSongIndex >= 0) {
-            const song = songs[currentSongIndex];
-            audio.src = song.file;
-            songInfo.textContent = song.name;
-            
-            // Wait for audio to be ready
-            audio.addEventListener('canplaythrough', function onNextSongReady() {
-              audio.removeEventListener('canplaythrough', onNextSongReady);
-              songInfo.classList.remove('song-loading');
-              
-              audio.play()
-                .then(() => {
-                  isPlaying = true;
-                  updatePlayPauseIcon();
-                  musicPlayer.classList.add('playing');
-                })
-                .catch(error => {
-                  console.error('Error playing audio:', error);
-                  isPlaying = false;
-                  updatePlayPauseIcon();
-                });
-            }, { once: true });
-            
-            // Handle loading errors
-            audio.addEventListener('error', function onNextSongError() {
-              audio.removeEventListener('error', onNextSongError);
-              songInfo.classList.remove('song-loading');
-              songInfo.textContent = 'Error loading song';
-              console.error('Error loading audio for next song');
-            }, { once: true });
-          }
-        }
-        
-        // Update play/pause button icon
-        function updatePlayPauseIcon() {
-          playPauseBtn.innerHTML = isPlaying 
-            ? '<i class="fas fa-pause"></i>' 
-            : '<i class="fas fa-play"></i>';
-        }
-        
-        // Play/Pause button click
-        playPauseBtn.addEventListener('click', function() {
-          if (audio.src) {
-            if (isPlaying) {
-              audio.pause();
-              musicPlayer.classList.remove('playing');
-            } else {
-              audio.play().catch(error => {
-                console.error('Error playing audio:', error);
-              });
-              musicPlayer.classList.add('playing');
-            }
-            isPlaying = !isPlaying;
-            updatePlayPauseIcon();
-          } else {
-            playNextSong();
-          }
-        });
-        
-        // Stop button click
-        stopBtn.addEventListener('click', function() {
-          audio.pause();
-          audio.currentTime = 0;
-          isPlaying = false;
-          updatePlayPauseIcon();
-          musicPlayer.classList.remove('playing');
-        });
-        
-        // Next button click
-        nextBtn.addEventListener('click', function() {
-          playNextSong();
-        });
-        
-        // When song ends, play next song
-        audio.addEventListener('ended', function() {
-          playNextSong();
-        });
-        
-        // Start with a random song when page loads
-        // Using multiple timeouts at different intervals for better chances of autoplay success
-        setTimeout(playRandomSongOnLoad, 500);
-        
-        // Add notification for users about the music player
-        const notifyAboutMusic = () => {
-          if (!isPlaying) {
-            // Create a temporary notification
-            const notification = document.createElement('div');
-            notification.style.position = 'fixed';
-            notification.style.bottom = '80px';
-            notification.style.right = '20px';
-            notification.style.backgroundColor = 'rgba(30, 56, 136, 0.9)';
-            notification.style.color = '#F5E050';
-            notification.style.padding = '10px 15px';
-            notification.style.borderRadius = '10px';
-            notification.style.fontFamily = "'Baloo 2', cursive";
-            notification.style.zIndex = '1000';
-            notification.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
-            notification.style.animation = 'fadeIn 0.5s';
-            notification.innerHTML = '🎵 Click to enjoy minion music! 🎵';
-            document.body.appendChild(notification);
-            
-            // Add animation
-            const style = document.createElement('style');
-            style.textContent = `
-              @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(20px); }
-                to { opacity: 1; transform: translateY(0); }
-              }
-              @keyframes fadeOut {
-                from { opacity: 1; transform: translateY(0); }
-                to { opacity: 0; transform: translateY(20px); }
-              }
-            `;
-            document.head.appendChild(style);
-            
-            // Remove after 4 seconds
-            setTimeout(() => {
-              notification.style.animation = 'fadeOut 0.5s';
-              setTimeout(() => {
-                document.body.removeChild(notification);
-              }, 500);
-            }, 4000);
-          }
-        };
-        
-        // Show notification after a delay
-        setTimeout(notifyAboutMusic, 2000);
-      });
-    </script>
-  </body>
-</html>
+                  musicPlayer.classList.
