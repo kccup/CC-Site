@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" type="image/png" href="../favicon.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Add Google Fonts for cartoon style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Fredoka+One&family=Luckiest+Guy&display=swap" rel="stylesheet">
+    
+    <title>Open Mic Night</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <script src="../script.js"></script>
+    <style>
+      /* Simplified Minions theme */
+      :root {
+        --minion-yellow: #F5E050;
+        --minion-blue: #1E3888;
+        --goggle-black: #333333;
+        --minion-white: #ffffff;
+      }
+      
+      body {
+        background-color: var(--minion-yellow);
+        color: var(--goggle-black);
+        font-family: 'Baloo 2', 'Comic Sans MS', cursive, sans-serif;
+        font-size: 1.1rem;
+      }
+      
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      header {
+        background-color: var(--minion-blue);
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+      }
+      
+      header h1 {
+        color: var(--minion-yellow);
+        text-align: center;
+        font-size: 2.5rem;
+        font-family: 'Fredoka One', cursive;
+        text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+        letter-spacing: 2px;
+        transform: rotate(-1deg);
+      }
+      
+      /* Minion-themed navbar */
+      .navbar {
+        background-color: var(--minion-yellow);
+        border-radius: 10px;
+        padding: 5px;
+      }
+      
+      .navbar ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+      }
+      
+      .navbar li {
+        margin: 0 15px;
+      }
+      
+      .navbar a {
+        text-decoration: none;
+        color: var(--minion-blue);
+        font-weight: bold;
+        font-size: 1.2rem;
+        padding: 8px 15px;
+        border-radius: 30px;
+        transition: all 0.3s;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        border: 2px solid var(--minion-blue);
+        font-family: 'Luckiest Guy', cursive;
+        letter-spacing: 1px;
+      }
+      
+      .navbar a:hover {
+        background-color: var(--minion-blue);
+        color: var(--minion-yellow);
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(30, 56, 136, 0.7);
+      }
+      
+      .navbar a.active {
+        background-color: var(--minion-blue);
+        color: var(--minion-yellow);
+        box-shadow: 0 0 15px rgba(30, 56, 136, 0.7);
+      }
+      
+      .navbar a:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: 0.5s;
+      }
+      
+      .navbar a:hover:before {
+        left: 100%;
+      }
+      
+      section {
+        background-color: var(--minion-white);
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 3px solid var(--minion-blue);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+      
+      .banana {
+        color: var(--minion-blue);
+        font-weight: bold;
+        font-size: 1.4em;
+        display: inline-block;
+        animation: bounce 1s infinite alternate;
+        font-family: 'Fredoka One', cursive;
+        text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+        letter-spacing: 1px;
+      }
+      
+      @keyframes bounce {
+        0% { transform: translateY(0) rotate(0deg); }
+        100% { transform: translateY(-10px) rotate(3deg); }
+      }
+      
+      .minion-quote {
+        font-style: italic;
+        border-left: 4px solid var(--minion-blue);
+        padding-left: 15px;
+        margin: 20px 0;
+        background-color: rgba(245, 224, 80, 0.3);
+        padding: 10px;
+        border-radius: 5px;
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.2em;
+      }
+      
+      .signup-button {
+        background-color: var(--minion-blue);
+        color: var(--minion-yellow);
+        padding: 12px 24px;
+        border: none;
+        border-radius: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        text-decoration: none;
+        max-width: 250px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        font-family: 'Luckiest Guy', cursive;
+        letter-spacing: 1px;
+        transform: rotate(-2deg);
+      }
+      
+      .signup-button:hover {
+        background-color: var(--minion-yellow);
+        color: var(--minion-blue);
+        border: 3px solid var(--minion-blue);
+        transform: scale(1.05) rotate(1deg);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      }
+      
+      h2 {
+        color: var(--minion-blue);
+        border-bottom: 2px dashed var(--minion-blue);
+        padding-bottom: 8px;
+        font-family: 'Fredoka One', cursive;
+        letter-spacing: 1px;
+        transform: rotate(-1deg);
+        display: inline-block;
+      }
+      
+      strong {
+        font-family: 'Luckiest Guy', cursive;
+        letter-spacing: 1px;
+        color: var(--minion-blue);
+      }
+      
+      footer {
+        background-color: var(--minion-blue);
+        color: var(--minion-yellow);
+        text-align: center;
+        padding: 15px;
+        border-radius: 10px;
+        font-weight: bold;
+        font-family: 'Baloo 2', cursive;
+        letter-spacing: 1px;
+      }
+      
+      /* Map container styles */
+      .map-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        overflow: hidden;
+        border-radius: 10px;
+        border: 3px solid var(--minion-blue);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin-top: 15px;
+      }
+      
+      .map-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .map-link {
+        display: inline-block;
+        margin-top: 10px;
+        font-family: 'Luckiest Guy', cursive;
+        color: var(--minion-blue);
+        text-decoration: none;
+        padding: 5px 10px;
+        border: 2px dashed var(--minion-blue);
+        border-radius: 10px;
+        transition: all 0.3s;
+      }
+      
+      .map-link:hover {
+        background-color: var(--minion-blue);
+        color: var(--minion-yellow);
+        border-style: solid;
+        transform: scale(1.05);
+      }
+      
+      .address-container {
+        background-color: rgba(245, 224, 80, 0.3);
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        display: inline-block;
+      }
+      
+      .address-container i {
+        color: var(--minion-blue);
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Minion-Themed Open Mic Night!</h1>
+        <div class="navbar">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="links.html">Links</a></li>
+            <li><a href="other.html">Other</a></li>
+            <li><a href="OMN.html" class="active">Open Mic</a></li>
+          </ul>
+        </div>
+      </header>
+      <main>
+        <section>
+          <h2><span class="banana">OPEN MIC NIGHT</span> Open Mic Night</h2>
+          <p>Come join the most <span class="banana">MINION-TASTIC</span> Open Mic Night!</p>
+          
+          <div class="minion-quote">
+            "Go tell your friends about it!" - Kevin (Translated)
+          </div>
+          
+          <p><strong>Date:</strong> April 1st, 2025</p>
+          <p><strong>Time:</strong> 3PM-5PM</p>
+          <p><strong>Location:</strong> STLCC Meramec Campus, Cafeteria</p>
+        </section>
+        
+        <!-- New Location Section with Map -->
+        <section>
+          <h2>Meramec Location:</h2>
+          <div class="address-container">
+            <i class="fas fa-map-marker-alt"></i>
+            <strong>Address:</strong> 11333 Big Bend Rd, Kirkwood, MO 63122
+          </div>
+          
+          <!-- Embedded Google Map -->
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3118.9860376279837!2d-90.4092323!3d38.5789696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8cce8e64d7bf5%3A0x893a7e0304c9253f!2sSt.%20Louis%20Community%20College%20-%20Meramec!5e0!3m2!1sen!2sus!4v1709909820754!5m2!1sen!2sus" 
+              width="600" 
+              height="450" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          
+          <!-- Link to open in Google Maps -->
+          <div style="text-align: center; margin-top: 10px;">
+            <a href="https://www.google.com/maps?q=11333+Big+Bend+Rd,+Kirkwood,+MO+63122" target="_blank" class="map-link">
+              <i class="fas fa-directions"></i> Get Directions on Google Maps
+            </a>
+          </div>
+        </section>
+        
+        <section>
+          <h2>What to Expect</h2>
+          <ul>
+            <li>5-minute performance slots</li>
+            <li>Minion-themed decorations</li>
+            <li>Banana snacks and refreshments</li>
+            <li>Prizes for best Minion impressions!</li>
+          </ul>
+          
+          <a href="#" class="signup-button">Sign Up to Perform!</a>
+        </section>
+      </main>
+      <footer>
+        <p>Bello! Created by Programming Club at Meramec &copy; 2025</p>
+      </footer>
+    </div>
+  </body>
+</html>
