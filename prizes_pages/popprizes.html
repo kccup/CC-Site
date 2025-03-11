@@ -317,6 +317,20 @@
         margin-top: 10px;
       }
       
+      /* Prize image styling */
+      .prize-image {
+        max-width: 100%;
+        height: auto;
+        margin-top: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
+      }
+      
+      .prize-card:hover .prize-image {
+        transform: scale(1.05);
+      }
+      
       /* Shiny effect for prizes */
       .prize-shine {
         position: absolute;
@@ -379,7 +393,8 @@
                 <span class="prize-rank">1st</span>
               </div>
               <h2>First Prize</h2>
-              <p class="prize-description">Macbook</p>
+              <p class="prize-description">MacBook Air 2023 w/ M2 chip </p>
+              <img src="../images/macbook.png.png" alt="MacBook Air" class="prize-image">
               <div class="prize-shine"></div>
             </div>
             
@@ -391,6 +406,7 @@
               </div>
               <h2>Second Prize</h2>
               <p class="prize-description">PS5</p>
+              <img src="../images/Ps5.png.png" alt="PlayStation 5" class="prize-image">
               <div class="prize-shine"></div>
             </div>
             
@@ -402,6 +418,7 @@
               </div>
               <h2>Third Prize</h2>
               <p class="prize-description">Epiphone Slash "AFD" Les Paul Special-II Performance Pack - Appetite Amber</p>
+              <img src="../images/Eguitar.png.png" alt="Epiphone Guitar" class="prize-image">
               <div class="prize-shine"></div>
             </div>
           </div>
