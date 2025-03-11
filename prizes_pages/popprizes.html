@@ -65,15 +65,15 @@
         filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); /* Shadow that works with transparency */
       }
       
-      header h1 {
-        color: var(--minion-yellow);
+      .page-title {
+        color: var(--minion-blue);
         text-align: center;
         font-size: 2.5rem;
         font-family: 'Fredoka One', cursive;
         text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
         letter-spacing: 2px;
         transform: rotate(-1deg);
-        margin-top: 10px;
+        margin: 20px 0 30px 0;
       }
       
       /* Minion-themed navbar */
@@ -355,11 +355,9 @@
   <body>
     <div class="container">
       <header>
-        <!-- Added OPMlogo.png above the title -->
         <div class="logo-container">
           <img src="../images/OPMlogo.png" alt="Popular Prizes Logo" class="header-logo">
         </div>
-        <h1>Popular Performance Prizes</h1>
         <div class="navbar">
           <ul>
             <li><a href="../index.html">Home</a></li>
@@ -371,7 +369,7 @@
       </header>
       
       <main>
-        <!-- Prize section with 1st, 2nd, and 3rd place prizes -->
+        <h1 class="page-title">Popular Performance Prizes</h1>
         <section class="prize-section">
           <div class="prize-container">
             <!-- 1st Prize -->
@@ -411,7 +409,7 @@
       </main>
       
       <footer>
-        <p>Bello! Created by Programming Club at Meramec &copy; 2025</p>
+        <p>Bello! Created by Programming Club at Meramec © 2025</p>
       </footer>
     </div>
     
