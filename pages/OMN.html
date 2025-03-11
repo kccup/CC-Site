@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=5.0, maximum-scale=5.0">
     <link rel="stylesheet" type="text/css" href="../mobile-menu.css">
     <link rel="shortcut icon" type="image/png" href="../favicon.png" />
     <meta charset="UTF-8" />
@@ -672,10 +672,8 @@
             </li>
             <li class="highlight-item">
               <span class="event-detail"><i class="fas fa-trophy"></i> WINNERS:</span>
-              <span>3 winners for Popular Performance Prizes: 
-            </li>
-              <span>4 winners for raffle prizes (just perform)</span>
-          </ul>
+              <span>3 winners for Popular Performance Prizes: 4 winners for Raffle Prizes
+         
           
           <!-- Popular performances prize -->
           <div class="prize-container">
@@ -726,43 +724,82 @@
     </div>
 
     <script>
-      // FIXED COUNTDOWN TIMER - Simplified approach
+      // IMPROVED COUNTDOWN TIMER WITH ONLINE DATE SYNC
       document.addEventListener('DOMContentLoaded', function() {
-        // Explicitly set target date as April 1st, 2025 at 3PM
-        const targetDate = new Date('2025-04-01T15:00:00');
-        
-        // For debugging - log target date
-        console.log("Target date:", targetDate);
-        console.log("Current date:", new Date());
+        // Explicitly set target date as April 1st, 2025 at 3PM CDT (UTC-5)
+        const targetDate = new Date('2025-04-01T15:00:00-05:00');
         
         // DOM elements
         const daysElement = document.getElementById('countdown-days');
+        const hoursElement = document.getElementById('countdown-hours');
+        const minutesElement = document.getElementById('countdown-minutes');
+        const secondsElement = document.getElementById('countdown-seconds');
+        const daysDisplay = document.getElementById('countdown-days-display');
+        const hmsDisplay = document.getElementById('countdown-hms-display');
+        
+        // Time offset between local time and server time (initially 0)
+        let timeOffset = 0;
+        
+        // Sync with worldtimeapi.org to get accurate time
+        fetch('https://worldtimeapi.org/api/ip')
+          .then(response => response.json())
+          .then(data => {
+            // Get the server time
+            const serverTime = new Date(data.datetime);
+            // Calculate offset between server time and local time
+            timeOffset = serverTime.getTime() - new Date().getTime();
+            console.log("Time offset from server:", timeOffset, "ms");
+            // Update countdown immediately after sync
+            updateCountdown();
+          })
+          .catch(error => {
+            console.error("Error fetching time from API:", error);
+            // Continue with local time if API fails
+            updateCountdown();
+          });
         
         function updateCountdown() {
-          // Get current date and time
-          const now = new Date();
+          // Get current date and time (with server offset applied)
+          const now = new Date(new Date().getTime() + timeOffset);
           
-          // Calculate days between now and target date
-          // First, get total milliseconds between dates
-          const diff = targetDate.getTime() - now.getTime();
+          // Calculate time difference in milliseconds
+          const diff = targetDate - now;
           
-          // Convert milliseconds to days (1000ms * 60s * 60m * 24h = 1 day in ms)
-          // Using Math.ceil to round up partial days
-          const daysRemaining = Math.ceil(diff / (1000 * 60 * 60 * 24));
+          // If the event has passed
+          if (diff <= 0) {
+            daysDisplay.style.display = 'none';
+            hmsDisplay.style.display = 'none';
+            document.querySelector('.countdown-message').textContent = "Event has started! 🎉";
+            return;
+          }
           
-          // Log days calculation for verification
-          console.log("Milliseconds difference:", diff);
-          console.log("Days remaining:", daysRemaining);
+          // Calculate days, hours, minutes, seconds
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
           
-          // Update the HTML element
-          daysElement.textContent = daysRemaining.toString().padStart(2, '0');
+          // Update the HTML elements
+          daysElement.textContent = days.toString().padStart(2, '0');
+          hoursElement.textContent = hours.toString().padStart(2, '0');
+          minutesElement.textContent = minutes.toString().padStart(2, '0');
+          secondsElement.textContent = seconds.toString().padStart(2, '0');
+          
+          // Show appropriate display based on days remaining
+          if (days >= 1) {
+            daysDisplay.style.display = 'flex';
+            hmsDisplay.style.display = 'none';
+          } else {
+            daysDisplay.style.display = 'none';
+            hmsDisplay.style.display = 'flex';
+          }
         }
         
-        // Update countdown immediately
+        // Update countdown immediately (will be refined once API responds)
         updateCountdown();
         
-        // Update countdown every 60 seconds (no need for second-by-second updates for days)
-        setInterval(updateCountdown, 60000);
+        // Update countdown every second for accurate countdown
+        setInterval(updateCountdown, 1000);
       });
 
       // COMPLETELY REVISED MUSIC PLAYER IMPLEMENTATION FOR RELIABLE PLAYBACK
