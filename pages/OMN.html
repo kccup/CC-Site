@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <link rel="stylesheet" type="text/css" href="../mobile-menu.css">
     <link rel="shortcut icon" type="image/png" href="../favicon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -626,7 +628,7 @@
           <!-- Embedded Google Map -->
           <div class="map-container">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3118.9860376279837!2d-90.4092323!3d38.5789696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8cce8e64d7bf5%3A0x893a7e0304c9253f!2sSt.%20Louis%20Community%20College%20-%20Meramec!5e0!3m2!1sen!2sus!4v1709909820754!5m2!1sen!2sus" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3118.097051547762!2d-90.4094384234092!3d38.5787977713279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8cce8e64d7bf5%3A0x893a7e0304c9253f!2s11333%20Big%20Bend%20Rd%2C%20St.%20Louis%2C%20MO%2063122!5e0!3m2!1sen!2sus!4v1710097207688!5m2!1sen!2sus" 
               width="600" 
               height="450" 
               style="border:0;" 
@@ -723,65 +725,46 @@
     </div>
 
     <script>
-      // Countdown Timer Implementation
+      // FIXED COUNTDOWN TIMER - Simplified approach
       document.addEventListener('DOMContentLoaded', function() {
-        // Set target date: April 1st, 2025 at 3PM CDT
-        const targetDate = new Date('2025-04-01T15:00:00-05:00'); // CDT is UTC-5
+        // Explicitly set target date as April 1st, 2025 at 3PM
+        const targetDate = new Date('2025-04-01T15:00:00');
+        
+        // For debugging - log target date
+        console.log("Target date:", targetDate);
+        console.log("Current date:", new Date());
         
         // DOM elements
-        const daysDisplay = document.getElementById('countdown-days-display');
-        const hmsDisplay = document.getElementById('countdown-hms-display');
         const daysElement = document.getElementById('countdown-days');
-        const hoursElement = document.getElementById('countdown-hours');
-        const minutesElement = document.getElementById('countdown-minutes');
-        const secondsElement = document.getElementById('countdown-seconds');
-        const messageElement = document.querySelector('.countdown-message');
         
         function updateCountdown() {
           // Get current date and time
           const now = new Date();
           
-          // Calculate time difference in milliseconds
-          const difference = targetDate - now;
+          // Calculate days between now and target date
+          // First, get total milliseconds between dates
+          const diff = targetDate.getTime() - now.getTime();
           
-          // Check if the event has already happened
-          if (difference <= 0) {
-            daysDisplay.style.display = 'none';
-            hmsDisplay.style.display = 'none';
-            messageElement.textContent = "Event has started! 🎉";
-            return;
-          }
+          // Convert milliseconds to days (1000ms * 60s * 60m * 24h = 1 day in ms)
+          // Using Math.ceil to round up partial days
+          const daysRemaining = Math.ceil(diff / (1000 * 60 * 60 * 24));
           
-          // Calculate days, hours, minutes, seconds
-          const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+          // Log days calculation for verification
+          console.log("Milliseconds difference:", diff);
+          console.log("Days remaining:", daysRemaining);
           
-          // Update the HTML elements
-          daysElement.textContent = days.toString().padStart(2, '0');
-          hoursElement.textContent = hours.toString().padStart(2, '0');
-          minutesElement.textContent = minutes.toString().padStart(2, '0');
-          secondsElement.textContent = seconds.toString().padStart(2, '0');
-          
-          // Show days display if more than 1 day remains, otherwise show hours, minutes, seconds
-          if (days >= 1) {
-            daysDisplay.style.display = 'flex';
-            hmsDisplay.style.display = 'none';
-          } else {
-            daysDisplay.style.display = 'none';
-            hmsDisplay.style.display = 'flex';
-          }
+          // Update the HTML element
+          daysElement.textContent = daysRemaining.toString().padStart(2, '0');
         }
         
         // Update countdown immediately
         updateCountdown();
         
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
+        // Update countdown every 60 seconds (no need for second-by-second updates for days)
+        setInterval(updateCountdown, 60000);
       });
 
-      // Music Player Implementation
+      // Music Player Implementation - FIXED VERSION
       document.addEventListener('DOMContentLoaded', function() {
         // Check if we're on the OMN page or related pages
         if (!document.getElementById('musicPlayer')) {
@@ -803,57 +786,98 @@
         const musicPlayer = document.getElementById('musicPlayer');
         const minionDance = document.getElementById('minionDance');
         
-        // Add loading state
-        songInfo.classList.add('song-loading');
-        
         // Audio object
         const audio = new Audio();
         
-        // Configure audio for better autoplay performance
+        // Configure audio
         audio.preload = 'auto';
         audio.volume = 0.7;
         
         let isPlaying = false;
         let currentSongIndex = -1;
         let playedSongs = [];
+        let autoplayAttempted = false;
         
-        // Function to play a song
+        // Improved display updates for better UX
+        function updateSongDisplay(songName, isLoading = false) {
+          // Always show song name regardless of play state
+          songInfo.textContent = songName;
+          
+          if (isLoading) {
+            songInfo.classList.add('song-loading');
+          } else {
+            songInfo.classList.remove('song-loading');
+          }
+        }
+        
+        // Enhanced function to play a song
         function playSong(index) {
           currentSongIndex = index;
           const song = songs[index];
           
-          // Update display immediately
-          songInfo.textContent = song.name;
-          songInfo.classList.add('song-loading');
+          // Update display immediately with song name and loading state
+          updateSongDisplay(song.name, true);
           
           // Set source and prepare to play
           audio.src = song.file;
           
           // Wait for the audio to be loaded
           audio.oncanplaythrough = function() {
-            songInfo.classList.remove('song-loading');
-            audio.play()
-              .then(() => {
-                isPlaying = true;
-                updatePlayPauseIcon();
-                musicPlayer.classList.add('playing');
-              })
-              .catch(error => {
-                console.error('Could not play audio automatically:', error);
-                songInfo.textContent = 'Click to play music';
-                isPlaying = false;
-                updatePlayPauseIcon();
-              });
+            updateSongDisplay(song.name, false);
+            
+            // Try to play
+            attemptAutoplay();
           };
           
           // Handle errors
           audio.onerror = function() {
             console.error('Error loading song:', song.file);
-            songInfo.classList.remove('song-loading');
-            songInfo.textContent = 'Error loading song';
+            updateSongDisplay('Trying next song...', false);
+            
             // Try the next song automatically
-            setTimeout(() => playNextSong(), 2000);
+            setTimeout(() => playNextSong(), 1000);
           };
+        }
+        
+        // Enhanced autoplay function
+        function attemptAutoplay() {
+          const playPromise = audio.play();
+          
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              // Autoplay successful
+              isPlaying = true;
+              updatePlayPauseIcon();
+              musicPlayer.classList.add('playing');
+            }).catch(error => {
+              console.error('Autoplay prevented:', error);
+              
+              // Even if autoplay fails, we still keep showing the song name
+              updateSongDisplay(songs[currentSongIndex].name, false);
+              
+              // Try muted autoplay as a workaround for some browsers
+              if (!autoplayAttempted) {
+                autoplayAttempted = true;
+                
+                // Try with muted audio (more likely to succeed)
+                audio.muted = true;
+                audio.play().then(() => {
+                  // Unmute after successful play
+                  setTimeout(() => {
+                    audio.muted = false;
+                    isPlaying = true;
+                    updatePlayPauseIcon();
+                    musicPlayer.classList.add('playing');
+                  }, 1000);
+                }).catch(err => {
+                  // Even muted play failed, needs user interaction
+                  console.error('Even muted play failed:', err);
+                  // Still show song name (not "Click to play")
+                  updateSongDisplay(songs[currentSongIndex].name, false);
+                });
+              }
+            });
+          }
         }
         
         // Get a random song index
@@ -942,13 +966,6 @@
         // Initialize by loading the first song
         setTimeout(() => {
           playNextSong();
-          // Remove the loading class in case autoplay is blocked
-          setTimeout(() => {
-            songInfo.classList.remove('song-loading');
-            if (!isPlaying) {
-              songInfo.textContent = 'Click to play music';
-            }
-          }, 3000);
         }, 500);
         
         // Add a listener for any user interaction to try playing (helps with autoplay issues)
