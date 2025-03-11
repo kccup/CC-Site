@@ -18,6 +18,7 @@
     <title>Open Mic Night</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script src="../script.js"></script>
+    <script src="../music-player.js"></script>
     <style>
       /* Simplified Minions theme */
       :root {
@@ -764,19 +765,24 @@
         setInterval(updateCountdown, 60000);
       });
 
-      // Music Player Implementation - FIXED VERSION
+      // COMPLETELY REVISED MUSIC PLAYER IMPLEMENTATION FOR RELIABLE PLAYBACK
       document.addEventListener('DOMContentLoaded', function() {
+        console.log("Music player initialization starting...");
+        
         // Check if we're on the OMN page or related pages
         if (!document.getElementById('musicPlayer')) {
+          console.log("Music player elements not found on page.");
           return; // Exit if music player elements don't exist
         }
         
-        // List of songs (update paths if needed)
+        // List of songs - VERIFY THESE PATHS EXIST!
         const songs = [
           { file: '../songs/Bananasong.mp3', name: 'Banana Song' },
           { file: '../songs/weddingsong.mp3', name: 'Wedding Song' },
           { file: '../songs/ymcasong.mp3', name: 'YMCA Minions' }
         ];
+        
+        console.log("Songs configuration:", songs);
         
         // Elements
         const playPauseBtn = document.getElementById('playPauseBtn');
@@ -786,205 +792,279 @@
         const musicPlayer = document.getElementById('musicPlayer');
         const minionDance = document.getElementById('minionDance');
         
-        // Audio object
+        // For debugging purposes - check if elements exist
+        console.log("UI Elements found:", {
+          playPauseBtn: !!playPauseBtn,
+          stopBtn: !!stopBtn,
+          nextBtn: !!nextBtn,
+          songInfo: !!songInfo,
+          musicPlayer: !!musicPlayer,
+          minionDance: !!minionDance
+        });
+        
+        // Create Audio object with enhanced error detection
         const audio = new Audio();
-        
-        // Configure audio
         audio.preload = 'auto';
-        audio.volume = 0.7;
+        audio.volume = 0.8; // Higher volume for better audibility
         
+        // Add these event listeners for debugging
+        audio.addEventListener('loadstart', () => console.log('Audio loadstart'));
+        audio.addEventListener('durationchange', () => console.log('Audio durationchange'));
+        audio.addEventListener('loadedmetadata', () => console.log('Audio loadedmetadata'));
+        audio.addEventListener('loadeddata', () => console.log('Audio loadeddata'));
+        audio.addEventListener('progress', () => console.log('Audio progress'));
+        audio.addEventListener('canplay', () => console.log('Audio canplay'));
+        audio.addEventListener('canplaythrough', () => console.log('Audio canplaythrough'));
+        audio.addEventListener('play', () => console.log('Audio play event'));
+        audio.addEventListener('playing', () => console.log('Audio playing'));
+        audio.addEventListener('seeking', () => console.log('Audio seeking'));
+        
+        // State tracking
         let isPlaying = false;
         let currentSongIndex = -1;
         let playedSongs = [];
-        let autoplayAttempted = false;
         
-        // Improved display updates for better UX
-        function updateSongDisplay(songName, isLoading = false) {
-          // Always show song name regardless of play state
+        // Function to update UI based on play state
+        function updatePlayerUI(isLoading = false) {
+          // Get current song if available
+          const songName = currentSongIndex >= 0 ? songs[currentSongIndex].name : 'Select a song';
+          
+          // Always show song name
           songInfo.textContent = songName;
           
+          // Set loading state
           if (isLoading) {
             songInfo.classList.add('song-loading');
           } else {
             songInfo.classList.remove('song-loading');
           }
-        }
-        
-        // Enhanced function to play a song
-        function playSong(index) {
-          currentSongIndex = index;
-          const song = songs[index];
           
-          // Update display immediately with song name and loading state
-          updateSongDisplay(song.name, true);
+          // Update play/pause button
+          if (playPauseBtn) {
+            playPauseBtn.innerHTML = isPlaying 
+              ? '<i class="fas fa-pause"></i>' 
+              : '<i class="fas fa-play"></i>';
+          }
           
-          // Set source and prepare to play
-          audio.src = song.file;
-          
-          // Wait for the audio to be loaded
-          audio.oncanplaythrough = function() {
-            updateSongDisplay(song.name, false);
-            
-            // Try to play
-            attemptAutoplay();
-          };
-          
-          // Handle errors
-          audio.onerror = function() {
-            console.error('Error loading song:', song.file);
-            updateSongDisplay('Trying next song...', false);
-            
-            // Try the next song automatically
-            setTimeout(() => playNextSong(), 1000);
-          };
-        }
-        
-        // Enhanced autoplay function
-        function attemptAutoplay() {
-          const playPromise = audio.play();
-          
-          if (playPromise !== undefined) {
-            playPromise.then(() => {
-              // Autoplay successful
-              isPlaying = true;
-              updatePlayPauseIcon();
-              musicPlayer.classList.add('playing');
-            }).catch(error => {
-              console.error('Autoplay prevented:', error);
-              
-              // Even if autoplay fails, we still keep showing the song name
-              updateSongDisplay(songs[currentSongIndex].name, false);
-              
-              // Try muted autoplay as a workaround for some browsers
-              if (!autoplayAttempted) {
-                autoplayAttempted = true;
-                
-                // Try with muted audio (more likely to succeed)
-                audio.muted = true;
-                audio.play().then(() => {
-                  // Unmute after successful play
-                  setTimeout(() => {
-                    audio.muted = false;
-                    isPlaying = true;
-                    updatePlayPauseIcon();
-                    musicPlayer.classList.add('playing');
-                  }, 1000);
-                }).catch(err => {
-                  // Even muted play failed, needs user interaction
-                  console.error('Even muted play failed:', err);
-                  // Still show song name (not "Click to play")
-                  updateSongDisplay(songs[currentSongIndex].name, false);
-                });
-              }
-            });
+          // Update dancing minion
+          if (isPlaying) {
+            musicPlayer.classList.add('playing');
+          } else {
+            musicPlayer.classList.remove('playing');
           }
         }
         
-        // Get a random song index
+        // Load and play a song - completely rewritten for better reliability
+        function loadAndPlaySong(index) {
+          console.log(`Attempting to load and play song index ${index}: ${songs[index].name}`);
+          
+          // Update state
+          currentSongIndex = index;
+          
+          // Update UI to show loading state
+          updatePlayerUI(true);
+          
+          try {
+            // Reset audio
+            audio.pause();
+            audio.currentTime = 0;
+            
+            // Set new source
+            audio.src = songs[index].file;
+            
+            console.log(`Set audio source to: ${audio.src}`);
+            
+            // Start loading the audio file
+            audio.load();
+            
+            // Function to actually play the song once it's loaded enough
+            const playWhenReady = function() {
+              console.log("Audio is ready to play, attempting playback...");
+              
+              // Remove the event listener so it only triggers once
+              audio.removeEventListener('canplaythrough', playWhenReady);
+              
+              // Play with robust error handling
+              const playPromise = audio.play();
+              
+              if (playPromise !== undefined) {
+                playPromise.then(() => {
+                  console.log("Playback started successfully!");
+                  isPlaying = true;
+                  updatePlayerUI(false);
+                }).catch(error => {
+                  console.error("Playback was prevented:", error);
+                  
+                  // Even if autoplay fails, still show the song as loaded
+                  updatePlayerUI(false);
+                  
+                  // Try playing muted (often allowed by browsers)
+                  audio.muted = true;
+                  audio.play().then(() => {
+                    console.log("Muted playback successful");
+                    isPlaying = true;
+                    updatePlayerUI(false);
+                    
+                    // Try to unmute after a short delay
+                    setTimeout(() => {
+                      audio.muted = false;
+                      console.log("Unmuted after successful muted playback");
+                    }, 1000);
+                  }).catch(mutedErr => {
+                    console.error("Even muted play failed:", mutedErr);
+                    // Keep showing song name, ready for user interaction
+                    updatePlayerUI(false);
+                    isPlaying = false;
+                  });
+                });
+              }
+            };
+            
+            // Listen for canplaythrough event to know when enough data is loaded
+            audio.addEventListener('canplaythrough', playWhenReady, { once: true });
+            
+            // Set a timeout in case canplaythrough never fires
+            setTimeout(() => {
+              if (!isPlaying) {
+                console.log("Timeout reached, trying to play anyway...");
+                audio.removeEventListener('canplaythrough', playWhenReady);
+                audio.play().catch(e => console.error("Play after timeout failed:", e));
+              }
+            }, 5000);
+            
+          } catch (err) {
+            console.error("Error in loadAndPlaySong:", err);
+            updatePlayerUI(false);
+            
+            // Try next song if this one fails
+            setTimeout(() => {
+              playNextSong();
+            }, 2000);
+          }
+        }
+        
+        // Get a random song index that hasn't been played yet
         function getRandomSongIndex() {
-          // If all songs have been played, reset tracking
+          // Reset if all songs have been played
           if (playedSongs.length >= songs.length) {
+            console.log("All songs have been played, resetting play history");
             playedSongs = [];
           }
           
-          // Get songs not yet played
+          // Get available songs (not yet played)
           const availableSongs = songs.filter(song => !playedSongs.includes(song.file));
+          console.log(`${availableSongs.length} songs available to play next`);
           
-          // Select random song
+          // Pick a random one
           const randomIndex = Math.floor(Math.random() * availableSongs.length);
           const selectedSong = availableSongs[randomIndex];
           
-          // Track played song
+          // Track it as played
           playedSongs.push(selectedSong.file);
+          console.log(`Selected song: ${selectedSong.name}`);
           
-          // Return index in the original songs array
+          // Return the index from the original array
           return songs.findIndex(song => song.file === selectedSong.file);
         }
         
         // Play the next song
         function playNextSong() {
           const nextIndex = getRandomSongIndex();
-          playSong(nextIndex);
+          loadAndPlaySong(nextIndex);
         }
         
-        // Update play/pause button icon
-        function updatePlayPauseIcon() {
-          if (playPauseBtn) { // Check if element exists
-            playPauseBtn.innerHTML = isPlaying 
-              ? '<i class="fas fa-pause"></i>' 
-              : '<i class="fas fa-play"></i>';
-          }
-        }
-        
-        // Set up event listeners if elements exist
+        // Event listeners for player controls
         if (playPauseBtn) {
           playPauseBtn.addEventListener('click', function() {
+            console.log("Play/pause button clicked");
+            
             if (!audio.src || audio.src === '') {
+              console.log("No song loaded, selecting one");
               playNextSong();
               return;
             }
             
             if (isPlaying) {
+              console.log("Pausing current song");
               audio.pause();
-              musicPlayer.classList.remove('playing');
+              isPlaying = false;
+              updatePlayerUI();
             } else {
+              console.log("Resuming playback");
               audio.play()
                 .then(() => {
-                  musicPlayer.classList.add('playing');
+                  isPlaying = true;
+                  updatePlayerUI();
+                  console.log("Resumed successfully");
                 })
                 .catch(error => {
-                  console.error('Error playing audio:', error);
+                  console.error("Error resuming:", error);
                 });
             }
-            
-            isPlaying = !isPlaying;
-            updatePlayPauseIcon();
           });
         }
         
         if (stopBtn) {
           stopBtn.addEventListener('click', function() {
+            console.log("Stop button clicked");
             audio.pause();
             audio.currentTime = 0;
             isPlaying = false;
-            updatePlayPauseIcon();
-            musicPlayer.classList.remove('playing');
+            updatePlayerUI();
           });
         }
         
         if (nextBtn) {
           nextBtn.addEventListener('click', function() {
+            console.log("Next button clicked");
             playNextSong();
           });
         }
         
         // When song ends, play next song
         audio.addEventListener('ended', function() {
+          console.log("Song ended, playing next one");
           playNextSong();
         });
         
-        // Initialize by loading the first song
-        setTimeout(() => {
-          playNextSong();
-        }, 500);
+        // If errors occur, try the next song
+        audio.addEventListener('error', function(e) {
+          console.error("Audio error occurred:", e);
+          console.error("Audio error code:", audio.error ? audio.error.code : "unknown");
+          console.error("Audio error message:", audio.error ? audio.error.message : "unknown");
+          console.log("Trying next song after error");
+          setTimeout(() => playNextSong(), 1000);
+        });
         
-        // Add a listener for any user interaction to try playing (helps with autoplay issues)
-        document.addEventListener('click', function initialPlay() {
+        // Add click listener to the entire document to help with autoplay policies
+        document.addEventListener('click', function handleFirstInteraction() {
           if (!isPlaying && audio.paused && audio.src) {
+            console.log("User interaction detected, trying to play audio");
             audio.play()
               .then(() => {
                 isPlaying = true;
-                updatePlayPauseIcon();
-                musicPlayer.classList.add('playing');
-                // Remove this one-time listener
-                document.removeEventListener('click', initialPlay);
+                updatePlayerUI();
+                console.log("Playback after user interaction successful");
+                
+                // Only remove listener after successful playback
+                document.removeEventListener('click', handleFirstInteraction);
               })
               .catch(error => {
-                console.error('Still could not play after user interaction:', error);
+                console.error("Still couldn't play after user interaction:", error);
               });
           }
         });
+        
+        // Start playing first song after a short delay
+        console.log("Setting timeout to start playback");
+        setTimeout(() => {
+          console.log("Initial timeout reached, attempting to play first song");
+          playNextSong();
+        }, 1000);
+        
+        console.log("Music player initialization complete");
       });
+      
     </script>
   </body>
 </html>
