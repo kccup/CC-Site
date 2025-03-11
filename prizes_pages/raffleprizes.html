@@ -311,6 +311,20 @@
         margin-top: 10px;
       }
 
+      /* Prize image styling */
+      .prize-image {
+        max-width: 100%;
+        height: auto;
+        margin-top: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        transition: transform 0.3s ease;
+      }
+      
+      .prize-card:hover .prize-image {
+        transform: scale(1.05);
+      }
+
       /* Shiny effect for prizes */
       .prize-shine {
         position: absolute;
@@ -424,6 +438,7 @@
               </div>
               <h2>First Prize</h2>
               <p class="prize-description">Bose QuietComfort Headphones</p>
+              <img src="../images/bose.png" alt="Bose QuietComfort Headphones" class="prize-image" loading="lazy">
               <div class="prize-shine"></div>
             </div>
             <div class="prize-card second-prize">
@@ -433,6 +448,7 @@
               </div>
               <h2>Second Prize</h2>
               <p class="prize-description">Beats Pro Fit</p>
+              <img src="../images/beats.png" alt="Beats Pro Fit" class="prize-image" loading="lazy">
               <div class="prize-shine"></div>
             </div>
             <div class="prize-card third-prize">
@@ -442,6 +458,7 @@
               </div>
               <h2>Third Prize</h2>
               <p class="prize-description">JBL Flip 5 wireless speaker</p>
+              <img src="../images/jbl.png" alt="JBL Flip 5 wireless speaker" class="prize-image" loading="lazy">
               <div class="prize-shine"></div>
             </div>
             <div class="prize-card fourth-prize">
@@ -451,6 +468,7 @@
               </div>
               <h2>Fourth Prize</h2>
               <p class="prize-description">Amazon Echo</p>
+              <img src="../images/Amazon.png" alt="Amazon Echo" class="prize-image" loading="lazy">
               <div class="prize-shine"></div>
             </div>
           </div>
