@@ -71,7 +71,7 @@ via Github Desktop (app)
 5. When you're done editing, Github Desktop will automatically ask you if you want to commit to the main branch which is in the blue box. Only commit to master branch if you like the code.
 6. When you're done with the code and feel like its worthy to be in the original repo, press the push origin button.
 
-### Tools and Resources
+## Tools and Resources
 Here are some tools to help you on your journey
 
 * [Github Student Pack](https://education.github.com/pack) --> IF you're a college student, Github's student pack has Github Copilot for FREE! Just sign up with your my.stlcc.edu account and have your student ID ready to submit.
