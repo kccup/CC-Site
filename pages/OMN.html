@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=5.0, maximum-scale=5.0">
-    <link rel="stylesheet" type="text/css" href="../mobile-menu.css">
     <link rel="shortcut icon" type="image/png" href="../favicon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +16,6 @@
     <title>Open Mic Night</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script src="../script.js"></script>
-    <script src="../music-player.js"></script>
     <style>
       /* Simplified Minions theme */
       :root {
@@ -195,7 +192,7 @@
       strong {
         font-family: 'Luckiest Guy', cursive;
         letter-spacing: 1px;
-        color: var (--minion-blue);
+        color: var(--minion-blue);
       }
       
       footer {
@@ -244,7 +241,7 @@
       
       .map-link:hover {
         background-color: var(--minion-blue);
-        color: var (--minion-yellow);
+        color: var(--minion-yellow);
         border-style: solid;
         transform: scale(1.05);
       }
@@ -448,143 +445,9 @@
         text-align: center;
         margin: 20px 0;
       }
-
-      /* Minion-themed countdown timer styles */
-      .countdown-timer {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background-color: var(--minion-blue);
-        color: var(--minion-yellow);
-        padding: 10px;
-        border-radius: 15px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        z-index: 1000;
-        font-family: 'Fredoka One', cursive;
-        text-align: center;
-        border: 3px solid var(--minion-yellow);
-        transform: rotate(2deg);
-        max-width: 220px;
-        animation: float 3s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0% { transform: rotate(2deg) translateY(0px); }
-        50% { transform: rotate(-1deg) translateY(-5px); }
-        100% { transform: rotate(2deg) translateY(0px); }
-      }
-
-      .countdown-title {
-        font-size: 16px;
-        margin-bottom: 5px;
-        color: var(--minion-yellow);
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        letter-spacing: 1px;
-      }
-
-      .countdown-date {
-        font-size: 12px;
-        margin-bottom: 8px;
-        color: white;
-        background-color: var(--goggle-black);
-        border-radius: 10px;
-        padding: 2px 5px;
-        display: inline-block;
-      }
-
-      .countdown-units {
-        display: flex;
-        justify-content: center;
-        gap: 5px;
-      }
-
-      .countdown-unit {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .countdown-number {
-        background-color: var(--minion-yellow);
-        color: var(--minion-blue);
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        font-size: 28px;
-        font-weight: bold;
-        margin-bottom: 2px;
-        border: 2px solid var(--goggle-black);
-        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      }
-
-      .countdown-label {
-        font-size: 12px;
-        color: white;
-      }
-
-      .countdown-days-display {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .countdown-hms-display {
-        display: none;
-        justify-content: center;
-        gap: 5px;
-      }
-
-      .countdown-message {
-        margin-top: 5px;
-        font-size: 12px;
-        color: white;
-        animation: pulse 1.5s infinite;
-      }
-
-      .countdown-emoji {
-        display: inline-block;
-        font-size: 16px;
-        margin-left: 3px;
-        animation: bounce 1.2s infinite alternate;
-      }
     </style>
   </head>
   <body>
-    <!-- Countdown Timer -->
-    <div class="countdown-timer" id="countdown-timer">
-      <div class="countdown-title">OPEN MIC NIGHT</div>
-      <div class="countdown-date">April 1, 2025 @ 3PM CDT</div>
-      
-      <!-- Days display (shown when more than 1 day remains) -->
-      <div class="countdown-days-display" id="countdown-days-display">
-        <div class="countdown-unit">
-          <div class="countdown-number" id="countdown-days">00</div>
-          <div class="countdown-label">Days</div>
-        </div>
-      </div>
-      
-      <!-- Hours, minutes, seconds display (shown when less than 1 day remains) -->
-      <div class="countdown-hms-display" id="countdown-hms-display">
-        <div class="countdown-unit">
-          <div class="countdown-number" id="countdown-hours">00</div>
-          <div class="countdown-label">Hours</div>
-        </div>
-        <div class="countdown-unit">
-          <div class="countdown-number" id="countdown-minutes">00</div>
-          <div class="countdown-label">Mins</div>
-        </div>
-        <div class="countdown-unit">
-          <div class="countdown-number" id="countdown-seconds">00</div>
-          <div class="countdown-label">Secs</div>
-        </div>
-      </div>
-      
-      <div class="countdown-message"> Until the main event <span class="countdown-emoji">🍌</span></div>
-    </div>
-
     <div class="container">
       <header>
       <!-- Added OPMlogo.png above the title -->
@@ -596,6 +459,7 @@
         <ul>
         <li><a href="../index.html">Home</a></li>
         <li><a href="links.html">Links</a></li>
+        <li><a href="workshops.html">Workshops</a></li>
         <li><a href="other.html">Other</a></li>
         <li><a href="OMN.html" class="active">Open Mic Night</a></li>
         </ul>
@@ -603,9 +467,6 @@
       </header>
       <main>
       <section>
-        <div class="omn-image-container">
-          <img src="../images/OMN.png" alt="Open Mic Night" class="omn-header-image" style="width: 50%; height: auto;">
-        </div>
         <h2><span class="banana">OPEN MIC NIGHT AT MERAMEC</span></h2>
         <p>Come join the most <span class="banana">MINION-TASTIC</span> Open Mic Night!</p>
         
@@ -629,7 +490,7 @@
           <!-- Embedded Google Map -->
           <div class="map-container">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3118.097051547762!2d-90.4094384234092!3d38.5787977713279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8cce8e64d7bf5%3A0x893a7e0304c9253f!2s11333%20Big%20Bend%20Rd%2C%20St.%20Louis%2C%20MO%2063122!5e0!3m2!1sen!2sus!4v1710097207688!5m2!1sen!2sus" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3118.9860376279837!2d-90.4092323!3d38.5789696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8cce8e64d7bf5%3A0x893a7e0304c9253f!2sSt.%20Louis%20Community%20College%20-%20Meramec!5e0!3m2!1sen!2sus!4v1709909820754!5m2!1sen!2sus" 
               width="600" 
               height="450" 
               style="border:0;" 
@@ -650,42 +511,36 @@
         <section>
           <h2>What to Expect</h2>
           <ul class="minion-list">
+            <li>
+              <span class="event-detail"><i class="far fa-clock"></i> TIME:</span>
+              <span>5-minute MAX performance slots</span>
+            </li>
             <li class="highlight-item">
               <span class="event-detail"><i class="fas fa-paint-brush"></i> DECOR:</span>
               <span>Minion-themed decorations everywhere!</span>
             </li>
+            <li>
+              <span class="event-detail"><i class="fas fa-cookie-bite"></i> YUM:</span>
+              <span>Snacks and Refreshments</span>
+            </li>
             <li class="highlight-item">
               <span class="event-detail"><i class="fas fa-utensils"></i> FREE FOOD:</span>
-              <span>Snacks and Refreshments from Canes and Dominos</span>
+              <span>Canes and Dominos</span>
             </li>
             <li>
               <span class="event-detail"><i class="fas fa-music"></i> TALENTS:</span>
               <span>Anything Auditory or Visionary. Sing, dance, recite poetry... etc.</span>
             </li>
-              <li>
-              <span class="event-detail"><i class="fas fa-microphone"></i> EQUIPMENT:</span>
-              <span>Microphone, speakers, and basic instruments provided. Can bring your own but it will be part of your 5 minute max time frame to set it up</span>
-            </li>
             <li class="highlight-item">
               <span class="event-detail"><i class="fas fa-trophy"></i> WINNERS:</span>
-              <span>3 winners for Popular Performance Prizes: 4 winners for Raffle Prizes</span>
+              <span>3 winners for Popular Performance Prizes: 
             </li>
-            <li>
-              <span class="event-detail"><i class="fas fa-gamepad"></i> ACTIVITIES:</span>
-              <span>Photobooth, Fingerpaint Art, Raffle, Fun!</span>
-            </li>
+              <span>4 winners for raffle prizes (just perform)</span>
           </ul>
-          
-          <!-- Food image moved here - between bullet points and prize buttons -->
-          <div class="food-image-container">
-            <img src="../images/CanesAndDominos.png" alt="Minion enjoying food" 
-              style="width: 200px; height: 120px; object-fit: cover; object-position: center; border-radius: 10px; border: 3px dashed var(--minion-blue);
-               box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-          </div>
           
           <!-- Popular performances prize -->
           <div class="prize-container">
-            <a href="../prizes_pages/popprizes.html" class="map-link prize-button">
+            <a href="popprizes.html" class="map-link prize-button">
               <i class="fas fa-gift fa-bounce"></i> 
               <span class="prize-text">POPULAR PERFORMANCE PRIZES!</span>
               <span class="shine"></span>
@@ -694,35 +549,19 @@
           
           <!-- Raffle chances prize -->
           <div class="prize-container">
-            <a href="../prizes_pages/raffleprizes.html" class="map-link prize-button">
+            <a href="raffleprizes.html" class="map-link prize-button">
               <i class="fas fa-gift fa-bounce"></i> 
               <span class="prize-text">RAFFLE PRIZES!</span>
               <span class="shine"></span>
             </a>
           </div>
-        </section>
-        
-        <!-- Minion Rules moved to its own section -->
-        <section>
-          <h2>Minion Rules</h2>
-          <ul class="minion-list">
-            <li>
-              <span class="event-detail"><i class="fas fa-clipboard-list"></i> SIGN-UP:</span>
-              <span>Register at the event, first come first served</span>
-            </li>
-            <li class="highlight-item">
-              <span class="event-detail"><i class="fas fa-stopwatch"></i> TIME LIMIT:</span>
-              <span>5 minutes MAX per performance</span>
-            </li>
-            <li class="highlight-item">
-              <span class="event-detail"><i class="fas fa-handshake"></i> RESPECT:</span>
-              <span>Be supportive of all performers</span>
-            </li>
-            <li class="highlight-item">
-              <span class="event-detail"><i class="fas fa-filter"></i> CONTENT:</span>
-              <span>No overtly political, racist, and sexist content allowed</span>
-            </li>
-          </ul>
+          
+          <!-- Food image in a centered container -->
+          <div class="food-image-container">
+            <img src="../images/CanesAndDominos.png" alt="Minion enjoying food" 
+              style="width: 200px; height: 120px; object-fit: cover; object-position: center; border-radius: 10px; border: 3px dashed var(--minion-blue);
+               box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+          </div>
         </section>
       </main>
       <footer>
@@ -748,102 +587,15 @@
     </div>
 
     <script>
-      // IMPROVED COUNTDOWN TIMER WITH ONLINE DATE SYNC
+      // Music Player Implementation
       document.addEventListener('DOMContentLoaded', function() {
-        // Explicitly set target date as April 1st, 2025 at 3PM CDT (UTC-5)
-        const targetDate = new Date('2025-04-01T15:00:00-05:00');
-        
-        // DOM elements
-        const daysElement = document.getElementById('countdown-days');
-        const hoursElement = document.getElementById('countdown-hours');
-        const minutesElement = document.getElementById('countdown-minutes');
-        const secondsElement = document.getElementById('countdown-seconds');
-        const daysDisplay = document.getElementById('countdown-days-display');
-        const hmsDisplay = document.getElementById('countdown-hms-display');
-        
-        // Time offset between local time and server time (initially 0)
-        let timeOffset = 0;
-        
-        // Sync with worldtimeapi.org to get accurate time
-        fetch('https://worldtimeapi.org/api/ip')
-          .then(response => response.json())
-          .then(data => {
-            // Get the server time
-            const serverTime = new Date(data.datetime);
-            // Calculate offset between server time and local time
-            timeOffset = serverTime.getTime() - new Date().getTime();
-            console.log("Time offset from server:", timeOffset, "ms");
-            // Update countdown immediately after sync
-            updateCountdown();
-          })
-          .catch(error => {
-            console.error("Error fetching time from API:", error);
-            // Continue with local time if API fails
-            updateCountdown();
-          });
-        
-        function updateCountdown() {
-          // Get current date and time (with server offset applied)
-          const now = new Date(new Date().getTime() + timeOffset);
-          
-          // Calculate time difference in milliseconds
-          const diff = targetDate - now;
-          
-          // If the event has passed
-          if (diff <= 0) {
-            daysDisplay.style.display = 'none';
-            hmsDisplay.style.display = 'none';
-            document.querySelector('.countdown-message').textContent = "Event has started! 🎉";
-            return;
-          }
-          
-          // Calculate days, hours, minutes, seconds
-          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-          
-          // Update the HTML elements
-          daysElement.textContent = days.toString().padStart(2, '0');
-          hoursElement.textContent = hours.toString().padStart(2, '0');
-          minutesElement.textContent = minutes.toString().padStart(2, '0');
-          secondsElement.textContent = seconds.toString().padStart(2, '0');
-          
-          // Show appropriate display based on days remaining
-          if (days >= 1) {
-            daysDisplay.style.display = 'flex';
-            hmsDisplay.style.display = 'flex'; // Changed to show hours along with days
-          } else {
-            daysDisplay.style.display = 'none';
-            hmsDisplay.style.display = 'flex';
-          }
-        }
-        
-        // Update countdown immediately (will be refined once API responds)
-        updateCountdown();
-        
-        // Update countdown every second for accurate countdown
-        setInterval(updateCountdown, 1000);
-      });
-
-      // COMPLETELY REVISED MUSIC PLAYER IMPLEMENTATION FOR RELIABLE PLAYBACK
-      document.addEventListener('DOMContentLoaded', function() {
-        console.log("Music player initialization starting...");
-        
-        // Check if we're on the OMN page or related pages
-        if (!document.getElementById('musicPlayer')) {
-          console.log("Music player elements not found on page.");
-          return; // Exit if music player elements don't exist
-        }
-        
-        // List of songs - VERIFY THESE PATHS EXIST!
+        // List of songs with FIXED paths
         const songs = [
           { file: '../songs/Bananasong.mp3', name: 'Banana Song' },
           { file: '../songs/weddingsong.mp3', name: 'Wedding Song' },
-          { file: '../songs/ymcasong.mp3', name: 'YMCA Minions' }
+          { file: '../songs/ymcasong.mp3', name: 'YMCA Minions' },
+          { file: '../songs/underwearsong.mp3', name: 'Underwear Song' },
         ];
-        
-        console.log("Songs configuration:", songs);
         
         // Elements
         const playPauseBtn = document.getElementById('playPauseBtn');
@@ -851,281 +603,293 @@
         const nextBtn = document.getElementById('nextBtn');
         const songInfo = document.getElementById('songInfo');
         const musicPlayer = document.getElementById('musicPlayer');
-        const minionDance = document.getElementById('minionDance');
         
-        // For debugging purposes - check if elements exist
-        console.log("UI Elements found:", {
-          playPauseBtn: !!playPauseBtn,
-          stopBtn: !!stopBtn,
-          nextBtn: !!nextBtn,
-          songInfo: !!songInfo,
-          musicPlayer: !!musicPlayer,
-          minionDance: !!minionDance
-        });
+        // Add loading state
+        songInfo.classList.add('song-loading');
         
-        // Create Audio object with enhanced error detection
+        // Audio object
         const audio = new Audio();
+        
+        // Configure audio for better autoplay performance
         audio.preload = 'auto';
-        audio.volume = 0.8; // Higher volume for better audibility
+        audio.volume = 0.8;
         
-        // Add these event listeners for debugging
-        audio.addEventListener('loadstart', () => console.log('Audio loadstart'));
-        audio.addEventListener('durationchange', () => console.log('Audio durationchange'));
-        audio.addEventListener('loadedmetadata', () => console.log('Audio loadedmetadata'));
-        audio.addEventListener('loadeddata', () => console.log('Audio loadeddata'));
-        audio.addEventListener('progress', () => console.log('Audio progress'));
-        audio.addEventListener('canplay', () => console.log('Audio canplay'));
-        audio.addEventListener('canplaythrough', () => console.log('Audio canplaythrough'));
-        audio.addEventListener('play', () => console.log('Audio play event'));
-        audio.addEventListener('playing', () => console.log('Audio playing'));
-        audio.addEventListener('seeking', () => console.log('Audio seeking'));
-        
-        // State tracking
         let isPlaying = false;
         let currentSongIndex = -1;
         let playedSongs = [];
+        let autoplayAttempted = false;
         
-        // Function to update UI based on play state
-        function updatePlayerUI(isLoading = false) {
-          // Get current song if available
-          const songName = currentSongIndex >= 0 ? songs[currentSongIndex].name : 'Select a song';
+        // Pre-load all songs for better playback
+        function preloadSongs() {
+          songs.forEach(song => {
+            const tempAudio = new Audio();
+            tempAudio.preload = 'auto';
+            tempAudio.src = song.file;
+          });
+        }
+        
+        // Call preloadSongs immediately
+        preloadSongs();
+        
+        // Play a completely random song on page load with enhanced autoplay
+        function playRandomSongOnLoad() {
+          // Clear the played songs when the page loads to ensure true randomness
+          playedSongs = [];
+          localStorage.removeItem('minion_played_songs');
           
-          // Always show song name
-          songInfo.textContent = songName;
+          // Pick a completely random song
+          const randomIndex = Math.floor(Math.random() * songs.length);
+          currentSongIndex = randomIndex;
           
-          // Set loading state
-          if (isLoading) {
-            songInfo.classList.add('song-loading');
-          } else {
+          const song = songs[currentSongIndex];
+          audio.src = song.file;
+          
+          // Set song name immediately 
+          songInfo.textContent = song.name;
+          
+          // Add to played songs so it won't repeat until all others have played
+          playedSongs.push(song.file);
+          localStorage.setItem('minion_played_songs', JSON.stringify(playedSongs));
+          
+          // This will trigger as soon as the audio is ready to play
+          audio.addEventListener('canplaythrough', function onCanPlay() {
+            // Remove the event listener to prevent multiple triggers
+            audio.removeEventListener('canplaythrough', onCanPlay);
+            
+            // Remove loading indicator
             songInfo.classList.remove('song-loading');
-          }
+            
+            // Enhanced autoplay approach
+            attemptAutoplay();
+          }, { once: true });
           
-          // Update play/pause button
-          if (playPauseBtn) {
-            playPauseBtn.innerHTML = isPlaying 
-              ? '<i class="fas fa-pause"></i>' 
-              : '<i class="fas fa-play"></i>';
-          }
-          
-          // Update dancing minion
-          if (isPlaying) {
-            musicPlayer.classList.add('playing');
-          } else {
-            musicPlayer.classList.remove('playing');
-          }
+          // Handle loading errors
+          audio.addEventListener('error', function() {
+            songInfo.classList.remove('song-loading');
+            songInfo.textContent = "Ready to play";
+            console.error("Error loading audio");
+          });
         }
         
-        // Load and play a song - completely rewritten for better reliability
-        function loadAndPlaySong(index) {
-          console.log(`Attempting to load and play song index ${index}: ${songs[index].name}`);
+        // Enhanced autoplay function with multiple attempts
+        function attemptAutoplay() {
+          if (autoplayAttempted) return;
+          autoplayAttempted = true;
           
-          // Update state
-          currentSongIndex = index;
+          // Method 1: Standard autoplay
+          const playPromise = audio.play();
           
-          // Update UI to show loading state
-          updatePlayerUI(true);
-          
-          try {
-            // Reset audio
-            audio.pause();
-            audio.currentTime = 0;
-            
-            // Set new source
-            audio.src = songs[index].file;
-            
-            console.log(`Set audio source to: ${audio.src}`);
-            
-            // Start loading the audio file
-            audio.load();
-            
-            // Function to actually play the song once it's loaded enough
-            const playWhenReady = function() {
-              console.log("Audio is ready to play, attempting playback...");
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              // Success! Autoplay worked
+              isPlaying = true;
+              updatePlayPauseIcon();
+              musicPlayer.classList.add('playing');
+              console.log("Autoplay successful!");
+            }).catch(error => {
+              console.warn("Initial autoplay was prevented:", error);
               
-              // Remove the event listener so it only triggers once
-              audio.removeEventListener('canplaythrough', playWhenReady);
+              // Method 2: Try playing with muted first, then unmute
+              // (This often works in Chrome when standard autoplay fails)
+              audio.muted = true;
               
-              // Play with robust error handling
-              const playPromise = audio.play();
-              
-              if (playPromise !== undefined) {
-                playPromise.then(() => {
-                  console.log("Playback started successfully!");
+              audio.play().then(() => {
+                console.log("Muted autoplay successful, attempting to unmute...");
+                
+                // After a short delay, try to unmute
+                setTimeout(() => {
+                  audio.muted = false;
                   isPlaying = true;
-                  updatePlayerUI(false);
-                }).catch(error => {
-                  console.error("Playback was prevented:", error);
-                  
-                  // Even if autoplay fails, still show the song as loaded
-                  updatePlayerUI(false);
-                  
-                  // Try playing muted (often allowed by browsers)
-                  audio.muted = true;
+                  updatePlayPauseIcon();
+                  musicPlayer.classList.add('playing');
+                }, 1000);
+              }).catch(mutedError => {
+                console.warn("Even muted autoplay failed:", mutedError);
+                
+                // Method 3: Last resort - wait for any user interaction
+                const handleUserInteraction = function() {
                   audio.play().then(() => {
-                    console.log("Muted playback successful");
                     isPlaying = true;
-                    updatePlayerUI(false);
+                    updatePlayPauseIcon();
+                    musicPlayer.classList.add('playing');
                     
-                    // Try to unmute after a short delay
-                    setTimeout(() => {
-                      audio.muted = false;
-                      console.log("Unmuted after successful muted playback");
-                    }, 1000);
-                  }).catch(mutedErr => {
-                    console.error("Even muted play failed:", mutedErr);
-                    // Keep showing song name, ready for user interaction
-                    updatePlayerUI(false);
-                    isPlaying = false;
+                    // Remove event listeners after successful play
+                    ['click', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+                      document.removeEventListener(event, handleUserInteraction);
+                    });
                   });
+                };
+                
+                // Add multiple event listeners for any possible user interaction
+                ['click', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+                  document.addEventListener(event, handleUserInteraction, { once: true });
                 });
-              }
-            };
-            
-            // Listen for canplaythrough event to know when enough data is loaded
-            audio.addEventListener('canplaythrough', playWhenReady, { once: true });
-            
-            // Set a timeout in case canplaythrough never fires
-            setTimeout(() => {
-              if (!isPlaying) {
-                console.log("Timeout reached, trying to play anyway...");
-                audio.removeEventListener('canplaythrough', playWhenReady);
-                audio.play().catch(e => console.error("Play after timeout failed:", e));
-              }
-            }, 5000);
-            
-          } catch (err) {
-            console.error("Error in loadAndPlaySong:", err);
-            updatePlayerUI(false);
-            
-            // Try next song if this one fails
-            setTimeout(() => {
-              playNextSong();
-            }, 2000);
+                
+                // Show a message to encourage interaction
+                songInfo.textContent = "Click anywhere to play music!";
+              });
+            });
           }
         }
         
-        // Get a random song index that hasn't been played yet
-        function getRandomSongIndex() {
-          // Reset if all songs have been played
+        // Get a random song that hasn't been played yet (for next songs)
+        function getRandomSong() {
+          // If all songs have been played, reset the list
           if (playedSongs.length >= songs.length) {
-            console.log("All songs have been played, resetting play history");
             playedSongs = [];
           }
           
-          // Get available songs (not yet played)
-          const availableSongs = songs.filter(song => !playedSongs.includes(song.file));
-          console.log(`${availableSongs.length} songs available to play next`);
+          // Filter out already played songs
+          const availableSongs = songs.filter(song => 
+            !playedSongs.includes(song.file)
+          );
           
-          // Pick a random one
+          // Pick a random song from available ones
           const randomIndex = Math.floor(Math.random() * availableSongs.length);
           const selectedSong = availableSongs[randomIndex];
           
-          // Track it as played
+          // Add to played songs
           playedSongs.push(selectedSong.file);
-          console.log(`Selected song: ${selectedSong.name}`);
+          localStorage.setItem('minion_played_songs', JSON.stringify(playedSongs));
           
-          // Return the index from the original array
           return songs.findIndex(song => song.file === selectedSong.file);
         }
         
         // Play the next song
         function playNextSong() {
-          const nextIndex = getRandomSongIndex();
-          loadAndPlaySong(nextIndex);
-        }
-        
-        // Event listeners for player controls
-        if (playPauseBtn) {
-          playPauseBtn.addEventListener('click', function() {
-            console.log("Play/pause button clicked");
+          // Show loading state
+          songInfo.classList.add('song-loading');
+          
+          currentSongIndex = getRandomSong();
+          
+          if (currentSongIndex >= 0) {
+            const song = songs[currentSongIndex];
+            audio.src = song.file;
+            songInfo.textContent = song.name;
             
-            if (!audio.src || audio.src === '') {
-              console.log("No song loaded, selecting one");
-              playNextSong();
-              return;
-            }
-            
-            if (isPlaying) {
-              console.log("Pausing current song");
-              audio.pause();
-              isPlaying = false;
-              updatePlayerUI();
-            } else {
-              console.log("Resuming playback");
+            // Wait for audio to be ready
+            audio.addEventListener('canplaythrough', function onNextSongReady() {
+              audio.removeEventListener('canplaythrough', onNextSongReady);
+              songInfo.classList.remove('song-loading');
+              
               audio.play()
                 .then(() => {
                   isPlaying = true;
-                  updatePlayerUI();
-                  console.log("Resumed successfully");
+                  updatePlayPauseIcon();
+                  musicPlayer.classList.add('playing');
                 })
                 .catch(error => {
-                  console.error("Error resuming:", error);
+                  console.error('Error playing audio:', error);
+                  isPlaying = false;
+                  updatePlayPauseIcon();
                 });
-            }
-          });
+            }, { once: true });
+            
+            // Handle loading errors
+            audio.addEventListener('error', function onNextSongError() {
+              audio.removeEventListener('error', onNextSongError);
+              songInfo.classList.remove('song-loading');
+              songInfo.textContent = 'Error loading song';
+              console.error('Error loading audio for next song');
+            }, { once: true });
+          }
         }
         
-        if (stopBtn) {
-          stopBtn.addEventListener('click', function() {
-            console.log("Stop button clicked");
-            audio.pause();
-            audio.currentTime = 0;
-            isPlaying = false;
-            updatePlayerUI();
-          });
+        // Update play/pause button icon
+        function updatePlayPauseIcon() {
+          playPauseBtn.innerHTML = isPlaying 
+            ? '<i class="fas fa-pause"></i>' 
+            : '<i class="fas fa-play"></i>';
         }
         
-        if (nextBtn) {
-          nextBtn.addEventListener('click', function() {
-            console.log("Next button clicked");
-            playNextSong();
-          });
-        }
-        
-        // When song ends, play next song
-        audio.addEventListener('ended', function() {
-          console.log("Song ended, playing next one");
-          playNextSong();
-        });
-        
-        // If errors occur, try the next song
-        audio.addEventListener('error', function(e) {
-          console.error("Audio error occurred:", e);
-          console.error("Audio error code:", audio.error ? audio.error.code : "unknown");
-          console.error("Audio error message:", audio.error ? audio.error.message : "unknown");
-          console.log("Trying next song after error");
-          setTimeout(() => playNextSong(), 1000);
-        });
-        
-        // Add click listener to the entire document to help with autoplay policies
-        document.addEventListener('click', function handleFirstInteraction() {
-          if (!isPlaying && audio.paused && audio.src) {
-            console.log("User interaction detected, trying to play audio");
-            audio.play()
-              .then(() => {
-                isPlaying = true;
-                updatePlayerUI();
-                console.log("Playback after user interaction successful");
-                
-                // Only remove listener after successful playback
-                document.removeEventListener('click', handleFirstInteraction);
-              })
-              .catch(error => {
-                console.error("Still couldn't play after user interaction:", error);
+        // Play/Pause button click
+        playPauseBtn.addEventListener('click', function() {
+          if (audio.src) {
+            if (isPlaying) {
+              audio.pause();
+              musicPlayer.classList.remove('playing');
+            } else {
+              audio.play().catch(error => {
+                console.error('Error playing audio:', error);
               });
+              musicPlayer.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+            updatePlayPauseIcon();
+          } else {
+            playNextSong();
           }
         });
         
-        // Start playing first song after a short delay
-        console.log("Setting timeout to start playback");
-        setTimeout(() => {
-          console.log("Initial timeout reached, attempting to play first song");
-          playNextSong();
-        }, 1000);
+        // Stop button click
+        stopBtn.addEventListener('click', function() {
+          audio.pause();
+          audio.currentTime = 0;
+          isPlaying = false;
+          updatePlayPauseIcon();
+          musicPlayer.classList.remove('playing');
+        });
         
-        console.log("Music player initialization complete");
+        // Next button click
+        nextBtn.addEventListener('click', function() {
+          playNextSong();
+        });
+        
+        // When song ends, play next song
+        audio.addEventListener('ended', function() {
+          playNextSong();
+        });
+        
+        // Start with a random song when page loads
+        // Using multiple timeouts at different intervals for better chances of autoplay success
+        setTimeout(playRandomSongOnLoad, 500);
+        
+        // Add notification for users about the music player
+        const notifyAboutMusic = () => {
+          if (!isPlaying) {
+            // Create a temporary notification
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.bottom = '80px';
+            notification.style.right = '20px';
+            notification.style.backgroundColor = 'rgba(30, 56, 136, 0.9)';
+            notification.style.color = '#F5E050';
+            notification.style.padding = '10px 15px';
+            notification.style.borderRadius = '10px';
+            notification.style.fontFamily = "'Baloo 2', cursive";
+            notification.style.zIndex = '1000';
+            notification.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
+            notification.style.animation = 'fadeIn 0.5s';
+            notification.innerHTML = '🎵 Click to enjoy minion music! 🎵';
+            document.body.appendChild(notification);
+            
+            // Add animation
+            const style = document.createElement('style');
+            style.textContent = `
+              @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+              }
+              @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(20px); }
+              }
+            `;
+            document.head.appendChild(style);
+            
+            // Remove after 4 seconds
+            setTimeout(() => {
+              notification.style.animation = 'fadeOut 0.5s';
+              setTimeout(() => {
+                document.body.removeChild(notification);
+              }, 500);
+            }, 4000);
+          }
+        };
+        
+        // Show notification after a delay
+        setTimeout(notifyAboutMusic, 2000);
       });
-      
     </script>
   </body>
 </html>
