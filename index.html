@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <link rel="stylesheet" type="text/css" href="mobile-menu.css">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <link rel="stylesheet" type="text/css" href="mobile-menu.css" />
     <link rel="shortcut icon" type="image/png" href="favicon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,14 +28,14 @@
         --fox-white: #ffffff;
         --fox-cream: #fff8e6;
       }
-      
+
       body {
         background-color: var(--light-blue);
         color: var(--primary-blue);
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         transition: all 0.5s ease;
       }
-      
+
       /* Alternative fox color schemes for swapping */
       .fox-night-theme {
         --primary-blue: #2d2d4d;
@@ -42,7 +45,7 @@
         background-color: var(--light-blue);
         color: var(--primary-blue);
       }
-      
+
       .fox-forest-theme {
         --primary-blue: #2c5e1a;
         --secondary-blue: #4a8c3a;
@@ -51,7 +54,7 @@
         background-color: var(--light-blue);
         color: var(--primary-blue);
       }
-      
+
       .fox-autumn-theme {
         --primary-blue: #8b4513;
         --secondary-blue: #a86032;
@@ -60,12 +63,12 @@
         background-color: var(--light-blue);
         color: var(--primary-blue);
       }
-      
+
       .container {
         max-width: 1000px;
         margin: 0 auto;
       }
-      
+
       /* Fox-themed header */
       header {
         background-color: var(--primary-blue);
@@ -73,10 +76,10 @@
         border-radius: 10px;
         position: relative;
         margin-bottom: 20px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: all 0.5s ease;
       }
-      
+
       header h1 {
         color: var(--fox-white);
         text-align: center;
@@ -84,12 +87,12 @@
         font-size: 2rem;
         position: relative;
       }
-      
+
       header h1::before {
         position: relative;
         margin-right: 10px;
       }
-      
+
       /* Fox-themed navbar */
       .navbar {
         background-color: var(--fox-white);
@@ -98,7 +101,7 @@
         border-bottom: 3px solid var(--fox-orange);
         transition: all 0.5s ease;
       }
-      
+
       .navbar ul {
         display: flex;
         justify-content: center;
@@ -106,11 +109,11 @@
         padding: 0;
         margin: 0;
       }
-      
+
       .navbar li {
         margin: 0 15px;
       }
-      
+
       .navbar a {
         text-decoration: none;
         color: var(--primary-blue);
@@ -120,25 +123,25 @@
         transition: all 0.3s;
         display: inline-block;
       }
-      
+
       .navbar a:hover {
         background-color: var(--fox-orange);
         color: var(--fox-white);
         transform: translateY(-3px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
-      
+
       /* Fox-themed sections */
       section {
         background-color: var(--fox-white);
         border-radius: 10px;
         padding: 20px;
         margin-bottom: 20px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-left: 4px solid var(--fox-orange);
         transition: all 0.5s ease;
       }
-      
+
       section h2 {
         color: var(--primary-blue);
         border-bottom: 2px dashed var(--secondary-blue);
@@ -146,12 +149,11 @@
         margin-top: 0;
         transition: all 0.5s ease;
       }
-      
+
       section h2::after {
-    
         font-size: 0.8em;
       }
-      
+
       /* Fox button */
       #changeBackground {
         background-color: var(--fox-orange);
@@ -162,21 +164,21 @@
         cursor: pointer;
         font-weight: bold;
         transition: all 0.3s;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         position: relative;
         overflow: hidden;
       }
-      
+
       #changeBackground:hover {
         background-color: var(--primary-blue);
         transform: translateY(-3px);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
       }
-      
+
       #changeBackground:active {
         transform: translateY(0);
       }
-      
+
       /* Button ripple effect */
       .ripple {
         position: absolute;
@@ -185,36 +187,36 @@
         transform: scale(0);
         animation: ripple 0.6s linear;
       }
-      
+
       @keyframes ripple {
         to {
           transform: scale(4);
           opacity: 0;
         }
       }
-      
+
       /* QR code styling */
       .qrCode {
         border: 3px solid var(--primary-blue);
         border-radius: 10px;
         overflow: hidden;
         display: inline-block;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: all 0.3s;
       }
-      
+
       .qrCode:hover {
         transform: scale(1.03);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         border-color: var(--fox-orange);
       }
-      
+
       .qrCaption {
         color: var(--primary-blue);
         font-weight: bold;
         margin-top: 10px;
       }
-      
+
       /* Contribute button */
       #rainbowButton {
         background-color: var(--primary-blue);
@@ -225,27 +227,27 @@
         display: inline-block;
         font-weight: bold;
         transition: all 0.3s;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         position: relative;
         overflow: hidden;
       }
-      
+
       #rainbowButton::after {
         content: "🌈";
         margin-left: 8px;
       }
-      
+
       #rainbowButton:hover {
         background-color: var(--fox-orange);
         transform: translateY(-3px);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
       }
-      
+
       /* Social links */
       .social-links {
         text-align: center;
       }
-      
+
       .social-links a {
         display: inline-block;
         width: 50px;
@@ -258,13 +260,13 @@
         margin: 0 10px;
         transition: all 0.3s;
       }
-      
+
       .social-links a:hover {
         background-color: var(--fox-orange);
         transform: translateY(-5px) rotate(10deg);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
       }
-      
+
       /* Fox-themed footer */
       footer {
         background-color: var(--primary-blue);
@@ -276,7 +278,7 @@
         position: relative;
         transition: all 0.5s ease;
       }
-      
+
       footer p::after {
         content: " 🦊";
       }
@@ -290,6 +292,7 @@
           <ul>
             <li><a href="/index.html">Home</a></li>
             <li><a href="/pages/links.html">Links</a></li>
+            <li><a href="/pages/workshops.html">Workshops</a></li>
             <li><a href="/pages/other.html">Other</a></li>
             <li><a href="/pages/OMN.html">Open Mic Night</a></li>
           </ul>
@@ -297,8 +300,14 @@
       </header>
       <main>
         <section>
-          <h2>Welcome to STLCC's Programming Club's own Open Source WEBSITE!</h2>
-          <p>Join our friendly community of programmers and tech enthusiasts! We're like a pack of clever foxes, always curious and ready to learn new skills.</p>
+          <h2>
+            Welcome to STLCC's Programming Club's own Open Source WEBSITE!
+          </h2>
+          <p>
+            Join our friendly community of programmers and tech enthusiasts!
+            We're like a pack of clever foxes, always curious and ready to learn
+            new skills.
+          </p>
           <button id="changeBackground">Click me for fox magic!</button>
         </section>
         <section>
@@ -310,11 +319,16 @@
               <img src="images/qrCode.png" alt="Programming Club QR Code" />
             </div>
           </a>
-          <p class="qrCaption">Scan or Click this QR code to join our fox den!</p>
+          <p class="qrCaption">
+            Scan or Click this QR code to join our fox den!
+          </p>
         </section>
         <section>
           <h2>Contribute to the website!</h2>
-          <p>Be clever like a fox and help us improve our website with your coding skills!</p>
+          <p>
+            Be clever like a fox and help us improve our website with your
+            coding skills!
+          </p>
           <a
             href="https://github.com/kccup/CC-Site"
             target="_blank"
@@ -340,57 +354,60 @@
     </div>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const magicButton = document.getElementById('changeBackground');
-        const themes = ['fox-night-theme', 'fox-forest-theme', 'fox-autumn-theme'];
+      document.addEventListener("DOMContentLoaded", function () {
+        const magicButton = document.getElementById("changeBackground");
+        const themes = [
+          "fox-night-theme",
+          "fox-forest-theme",
+          "fox-autumn-theme",
+        ];
         let currentThemeIndex = -1; // Start with default theme
-        
+
         // Button ripple effect
-        magicButton.addEventListener('click', function(e) {
+        magicButton.addEventListener("click", function (e) {
           // Create ripple effect
-          const ripple = document.createElement('span');
-          ripple.classList.add('ripple');
+          const ripple = document.createElement("span");
+          ripple.classList.add("ripple");
           this.appendChild(ripple);
-          
+
           // Position the ripple
           const x = e.clientX - e.target.getBoundingClientRect().left;
           const y = e.clientY - e.target.getBoundingClientRect().top;
-          ripple.style.left = x + 'px';
-          ripple.style.top = y + 'px';
-          
+          ripple.style.left = x + "px";
+          ripple.style.top = y + "px";
+
           // Remove ripple after animation completes
           setTimeout(() => {
             ripple.remove();
           }, 600);
-          
+
           // Randomly choose between confetti or theme change
-          const randomEffect = Math.random() < 0.5 ? 'confetti' : 'themeChange';
-          
-          if (randomEffect === 'confetti') {
+          const randomEffect = Math.random() < 0.5 ? "confetti" : "themeChange";
+
+          if (randomEffect === "confetti") {
             // Trigger confetti explosion
             confetti({
               particleCount: 100,
               spread: 70,
               origin: { y: 0.6 },
-              colors: ['#1a4b8c', '#3a6ea5', '#c6e2ff', '#ff7518']
+              colors: ["#1a4b8c", "#3a6ea5", "#c6e2ff", "#ff7518"],
             });
-            
+
             // Add some fox emojis to the confetti
             setTimeout(() => {
               confetti({
                 particleCount: 15,
                 spread: 100,
                 scalar: 2,
-                shapes: ['circle'],
-                origin: { y: 0.6 }
+                shapes: ["circle"],
+                origin: { y: 0.6 },
               });
             }, 200);
-            
           } else {
             // Cycle through themes
             document.body.classList.remove(...themes);
             currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-            
+
             // If we've gone through all themes, go back to default
             if (currentThemeIndex >= 0) {
               document.body.classList.add(themes[currentThemeIndex]);

@@ -87,11 +87,19 @@
       }
 
       /* Adjust content positioning to accommodate navbar */
-      .container {
+      .rectangle-container {
         width: 90%;
-        max-width: 600px;
+        max-width: 800px;
         padding: 2rem;
-        margin-top: 70px; /* Provide space for navbar */
+      }
+
+      .rectangle-box {
+        padding: 20px;
+        border-radius: 10px;
+        background-color: var(--primary-blue);
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--fox-white)
       }
     </style>
   </head>
@@ -102,10 +110,20 @@
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="links.html">Links</a></li>
-          <li><a href="workshops.html">Workshops</a></li>
-          <li><a href="other.html" class="active">Other</a></li>
+          <li><a href="workshops.html" class="active">Workshops</a></li>
+          <li><a href="other.html">Other</a></li>
           <li><a href="OMN.html">Open Mic Night</a></li>
         </ul>
+      </div>
+    </div>
+
+    <div class="rectangle-container">
+      <div class="rectangle-box">
+          <h1>Programming Club Workshops</h1>
+          <p>
+            Our workshops are designed to help you improve your skills and learn
+          </p>
+        </div>
       </div>
     </div>
   </body>
