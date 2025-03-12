@@ -195,7 +195,7 @@
       strong {
         font-family: 'Luckiest Guy', cursive;
         letter-spacing: 1px;
-        color: var(--minion-blue);
+        color: var (--minion-blue);
       }
       
       footer {
@@ -654,13 +654,9 @@
               <span class="event-detail"><i class="fas fa-paint-brush"></i> DECOR:</span>
               <span>Minion-themed decorations everywhere!</span>
             </li>
-            <li>
-              <span class="event-detail"><i class="fas fa-cookie-bite"></i> YUM:</span>
-              <span>Snacks and Refreshments</span>
-            </li>
             <li class="highlight-item">
               <span class="event-detail"><i class="fas fa-utensils"></i> FREE FOOD:</span>
-              <span>Canes and Dominos</span>
+              <span>Snacks and Refreshments from Canes and Dominos</span>
             </li>
             <li>
               <span class="event-detail"><i class="fas fa-music"></i> TALENTS:</span>
@@ -721,6 +717,10 @@
             <li class="highlight-item">
               <span class="event-detail"><i class="fas fa-handshake"></i> RESPECT:</span>
               <span>Be supportive of all performers</span>
+            </li>
+            <li class="highlight-item">
+              <span class="event-detail"><i class="fas fa-filter"></i> CONTENT:</span>
+              <span>No overtly political, racist, and sexist content allowed</span>
             </li>
           </ul>
         </section>
@@ -812,7 +812,7 @@
           // Show appropriate display based on days remaining
           if (days >= 1) {
             daysDisplay.style.display = 'flex';
-            hmsDisplay.style.display = 'none';
+            hmsDisplay.style.display = 'flex'; // Changed to show hours along with days
           } else {
             daysDisplay.style.display = 'none';
             hmsDisplay.style.display = 'flex';
