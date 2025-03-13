@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=5.0, maximum-scale=5.0">
-    <link rel="stylesheet" type="text/css" href="../mobile-menu.css">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=5.0, maximum-scale=5.0"
+    />
+    <link rel="stylesheet" type="text/css" href="../mobile-menu.css" />
     <link rel="shortcut icon" type="image/png" href="../favicon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,10 +14,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <!-- Add Google Fonts for cartoon style -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Fredoka+One&family=Luckiest+Guy&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Fredoka+One&family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Open Mic Night</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script src="../script.js"></script>
@@ -22,61 +28,63 @@
     <style>
       /* Simplified Minions theme */
       :root {
-        --minion-yellow: #F5E050;
-        --minion-blue: #1E3888;
+        --minion-yellow: #f5e050;
+        --minion-blue: #1e3888;
         --goggle-black: #333333;
         --minion-white: #ffffff;
       }
-      
+
       body {
         background-color: var(--minion-yellow);
         color: var(--goggle-black);
-        font-family: 'Baloo 2', 'Comic Sans MS', cursive, sans-serif;
+        font-family: "Baloo 2", "Comic Sans MS", cursive, sans-serif;
         font-size: 1.1rem;
       }
-      
+
       .container {
         max-width: 1000px;
         margin: 0 auto;
       }
-      
+
       header {
         background-color: var(--minion-blue);
         padding: 25px;
         border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         margin-bottom: 20px;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
       }
-      
+
       /* Updated logo styling for center alignment and transparency */
       .logo-container {
         display: flex;
         justify-content: center;
         margin-bottom: 15px;
       }
-      
+
       .header-logo {
         height: 100px; /* Slightly larger */
         border-radius: 10px;
         object-fit: contain; /* Ensures the logo fits properly */
-        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); /* Shadow that works with transparency */
+        filter: drop-shadow(
+          0 4px 8px rgba(0, 0, 0, 0.3)
+        ); /* Shadow that works with transparency */
       }
-      
+
       header h1 {
         color: var(--minion-yellow);
         text-align: center;
         font-size: 2.5rem;
-        font-family: 'Fredoka One', cursive;
-        text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+        font-family: "Fredoka One", cursive;
+        text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
         letter-spacing: 2px;
         transform: rotate(-1deg);
         margin-top: 10px;
       }
-      
+
       /* Minion-themed navbar */
       .navbar {
         background-color: var(--minion-yellow);
@@ -88,7 +96,7 @@
         margin-top: 15px;
         width: 100%;
       }
-      
+
       .navbar ul {
         display: flex;
         justify-content: center;
@@ -96,11 +104,11 @@
         padding: 0;
         margin: 0;
       }
-      
+
       .navbar li {
         margin: 0 15px;
       }
-      
+
       .navbar a {
         text-decoration: none;
         color: var(--minion-blue);
@@ -113,23 +121,23 @@
         display: inline-block;
         overflow: hidden;
         border: 2px solid var(--minion-blue);
-        font-family: 'Luckiest Guy', cursive;
+        font-family: "Luckiest Guy", cursive;
         letter-spacing: 1px;
       }
-      
+
       .navbar a:hover {
         background-color: var(--minion-blue);
         color: var(--minion-yellow);
         transform: scale(1.1);
         box-shadow: 0 0 15px rgba(30, 56, 136, 0.7);
       }
-      
+
       .navbar a.active {
         background-color: var(--minion-blue);
         color: var(--minion-yellow);
         box-shadow: 0 0 15px rgba(30, 56, 136, 0.7);
       }
-      
+
       .navbar a:before {
         content: "";
         position: absolute;
@@ -137,39 +145,48 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
         transition: 0.5s;
       }
-      
+
       .navbar a:hover:before {
         left: 100%;
       }
-      
+
       section {
         background-color: var(--minion-white);
         border-radius: 15px;
         padding: 20px;
         margin-bottom: 20px;
         border: 3px solid var(--minion-blue);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
-      
+
       .banana {
         color: var(--minion-blue);
         font-weight: bold;
         font-size: 1.4em;
         display: inline-block;
         animation: bounce 1s infinite alternate;
-        font-family: 'Fredoka One', cursive;
-        text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+        font-family: "Fredoka One", cursive;
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
         letter-spacing: 1px;
       }
-      
+
       @keyframes bounce {
-        0% { transform: translateY(0) rotate(0deg); }
-        100% { transform: translateY(-10px) rotate(3deg); }
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+        100% {
+          transform: translateY(-10px) rotate(3deg);
+        }
       }
-      
+
       .minion-quote {
         font-style: italic;
         border-left: 4px solid var(--minion-blue);
@@ -178,26 +195,26 @@
         background-color: rgba(245, 224, 80, 0.3);
         padding: 10px;
         border-radius: 5px;
-        font-family: 'Baloo 2', cursive;
+        font-family: "Baloo 2", cursive;
         font-size: 1.2em;
       }
-      
+
       h2 {
         color: var(--minion-blue);
         border-bottom: 2px dashed var(--minion-blue);
         padding-bottom: 8px;
-        font-family: 'Fredoka One', cursive;
+        font-family: "Fredoka One", cursive;
         letter-spacing: 1px;
         transform: rotate(-1deg);
         display: inline-block;
       }
-      
+
       strong {
-        font-family: 'Luckiest Guy', cursive;
+        font-family: "Luckiest Guy", cursive;
         letter-spacing: 1px;
         color: var (--minion-blue);
       }
-      
+
       footer {
         background-color: var(--minion-blue);
         color: var(--minion-yellow);
@@ -205,10 +222,10 @@
         padding: 15px;
         border-radius: 10px;
         font-weight: bold;
-        font-family: 'Baloo 2', cursive;
+        font-family: "Baloo 2", cursive;
         letter-spacing: 1px;
       }
-      
+
       /* Map container styles */
       .map-container {
         position: relative;
@@ -218,10 +235,10 @@
         overflow: hidden;
         border-radius: 10px;
         border: 3px solid var(--minion-blue);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         margin-top: 15px;
       }
-      
+
       .map-container iframe {
         position: absolute;
         top: 0;
@@ -229,11 +246,11 @@
         width: 100%;
         height: 100%;
       }
-      
+
       .map-link {
         display: inline-block;
         margin-top: 10px;
-        font-family: 'Luckiest Guy', cursive;
+        font-family: "Luckiest Guy", cursive;
         color: var(--minion-blue);
         text-decoration: none;
         padding: 5px 10px;
@@ -241,14 +258,14 @@
         border-radius: 10px;
         transition: all 0.3s;
       }
-      
+
       .map-link:hover {
         background-color: var(--minion-blue);
         color: var (--minion-yellow);
         border-style: solid;
         transform: scale(1.05);
       }
-      
+
       .address-container {
         background-color: rgba(245, 224, 80, 0.3);
         padding: 10px;
@@ -256,12 +273,12 @@
         margin-bottom: 15px;
         display: inline-block;
       }
-      
+
       .address-container i {
         color: var(--minion-blue);
         margin-right: 5px;
       }
-      
+
       /* Music player styles */
       .music-player {
         position: fixed;
@@ -273,22 +290,22 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         z-index: 1000;
         border: 3px solid var(--minion-yellow);
         transition: all 0.3s ease;
       }
-      
+
       .music-player:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
       }
-      
+
       .player-controls {
         display: flex;
         gap: 8px;
       }
-      
+
       .player-button {
         background-color: var(--minion-yellow);
         color: var(--minion-blue);
@@ -303,55 +320,61 @@
         justify-content: center;
         transition: all 0.2s ease;
       }
-      
+
       .player-button:hover {
         transform: scale(1.1);
         background-color: #fff;
       }
-      
+
       .song-info {
         color: var(--minion-yellow);
-        font-family: 'Fredoka One', cursive;
+        font-family: "Fredoka One", cursive;
         font-size: 14px;
         max-width: 150px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
       }
-      
+
       .minion-dance {
         width: 40px;
         height: 40px;
-        background-image: url('https://media.tenor.com/m4KxM27sQ2kAAAAi/minions-dancing-minion.gif');
+        background-image: url("https://media.tenor.com/m4KxM27sQ2kAAAAi/minions-dancing-minion.gif");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
         opacity: 0;
         transition: opacity 0.3s ease;
       }
-      
+
       .playing .minion-dance {
         opacity: 1;
       }
-      
+
       /* Loading animation */
       @keyframes pulse {
-        0% { opacity: 0.7; }
-        50% { opacity: 1; }
-        100% { opacity: 0.7; }
+        0% {
+          opacity: 0.7;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.7;
+        }
       }
-      
+
       .song-loading {
         animation: pulse 1.2s infinite;
       }
-      
+
       /* Minion-themed list styling - UPDATED for better alignment */
       .minion-list {
         list-style-type: none;
         padding-left: 0;
         margin: 15px 0;
       }
-      
+
       /* Basic list item styling - UPDATED for better alignment */
       .minion-list li {
         margin: 12px 0;
@@ -361,7 +384,7 @@
         display: flex;
         align-items: baseline;
       }
-      
+
       /* Banana emoji as list marker */
       .minion-list li:before {
         content: "🍌";
@@ -370,27 +393,27 @@
         font-size: 24px;
         transition: transform 0.2s ease;
       }
-      
+
       /* Subtle hover effect */
       .minion-list li:hover {
         transform: translateX(5px);
       }
-      
+
       .minion-list li:hover:before {
         transform: rotate(10deg);
       }
-      
+
       /* Event detail label styling - UPDATED for better alignment */
       .event-detail {
         font-weight: bold;
         color: var(--minion-blue);
-        font-family: 'Fredoka One', cursive;
+        font-family: "Fredoka One", cursive;
         margin-right: 6px;
         min-width: 90px; /* Set a fixed width for the labels */
         display: inline-block;
         text-align: left;
       }
-      
+
       /* Add CSS for prize buttons - consolidated styles */
       .prize-button {
         background-color: var(--minion-blue);
@@ -406,43 +429,52 @@
         text-align: center;
         width: auto;
       }
-      
+
       .prize-button:hover {
         transform: scale(1.1) rotate(2deg) !important;
         box-shadow: 0 0 20px rgba(245, 224, 80, 1) !important;
       }
-      
+
       .fa-bounce {
         animation: bounce 1s infinite alternate;
       }
-      
+
       .prize-text {
         font-weight: bold;
-        text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
         letter-spacing: 1px;
       }
-      
+
       .shine {
         position: absolute;
         top: 0;
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.6),
+          transparent
+        );
         animation: shine 2s infinite;
       }
-      
+
       @keyframes shine {
-        0% { left: -100%; }
-        100% { left: 100%; }
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
       }
-      
+
       .prize-container {
         display: flex;
         flex-direction: column;
         margin: 5px 0;
       }
-      
+
       /* Food image container */
       .food-image-container {
         text-align: center;
@@ -458,9 +490,9 @@
         color: var(--minion-yellow);
         padding: 10px;
         border-radius: 15px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         z-index: 1000;
-        font-family: 'Fredoka One', cursive;
+        font-family: "Fredoka One", cursive;
         text-align: center;
         border: 3px solid var(--minion-yellow);
         transform: rotate(2deg);
@@ -469,16 +501,22 @@
       }
 
       @keyframes float {
-        0% { transform: rotate(2deg) translateY(0px); }
-        50% { transform: rotate(-1deg) translateY(-5px); }
-        100% { transform: rotate(2deg) translateY(0px); }
+        0% {
+          transform: rotate(2deg) translateY(0px);
+        }
+        50% {
+          transform: rotate(-1deg) translateY(-5px);
+        }
+        100% {
+          transform: rotate(2deg) translateY(0px);
+        }
       }
 
       .countdown-title {
         font-size: 16px;
         margin-bottom: 5px;
         color: var(--minion-yellow);
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         letter-spacing: 1px;
       }
 
@@ -517,7 +555,7 @@
         font-weight: bold;
         margin-bottom: 2px;
         border: 2px solid var(--goggle-black);
-        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       }
 
       .countdown-label {
@@ -557,7 +595,7 @@
     <div class="countdown-timer" id="countdown-timer">
       <div class="countdown-title">OPEN MIC NIGHT</div>
       <div class="countdown-date">April 1, 2025 @ 3PM CDT</div>
-      
+
       <!-- Days display (shown when more than 1 day remains) -->
       <div class="countdown-days-display" id="countdown-days-display">
         <div class="countdown-unit">
@@ -565,7 +603,7 @@
           <div class="countdown-label">Days</div>
         </div>
       </div>
-      
+
       <!-- Hours, minutes, seconds display (shown when less than 1 day remains) -->
       <div class="countdown-hms-display" id="countdown-hms-display">
         <div class="countdown-unit">
@@ -581,151 +619,216 @@
           <div class="countdown-label">Secs</div>
         </div>
       </div>
-      
-      <div class="countdown-message"> Until the main event <span class="countdown-emoji">🍌</span></div>
+
+      <div class="countdown-message">
+        Until the main event <span class="countdown-emoji">🍌</span>
+      </div>
     </div>
 
     <div class="container">
       <header>
-      <!-- Added OPMlogo.png above the title -->
-      <div class="logo-container">
-        <img src="../images/OPMlogo.png" alt="Open Mic Night Logo" class="header-logo">
-      </div>
-      <h1>Minion-Themed Open Mic Night!</h1>
-      <div class="navbar">
-        <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="info.html">Info</a></li>
-        <li><a href="links.html">Links</a></li>
-<<<<<<< Updated upstream
-        <li><a href="other.html">Other</a></li>
-=======
-        <li><a href="workshops.html">Workshops</a></li>
->>>>>>> Stashed changes
-        <li><a href="OMN.html" class="active">Open Mic Night</a></li>
-        </ul>
-      </div>
+        <!-- Added OPMlogo.png above the title -->
+        <div class="logo-container">
+          <img
+            src="../images/OPMlogo.png"
+            alt="Open Mic Night Logo"
+            class="header-logo"
+          />
+        </div>
+        <h1>Minion-Themed Open Mic Night!</h1>
+        <div class="navbar">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="info.html">Info</a></li>
+            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="links.html">Links</a></li>
+            <li><a href="other.html">Other</a></li>
+            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="OMN.html" class="active">Open Mic Night</a></li>
+          </ul>
+        </div>
       </header>
       <main>
-      <section>
-        <div class="omn-image-container">
-          <img src="../images/OMN.png" alt="Open Mic Night" class="omn-header-image" style="width: 50%; height: auto;">
-        </div>
-        <h2><span class="banana">OPEN MIC NIGHT AT MERAMEC</span></h2>
-        <p>Come join the most <span class="banana">MINION-TASTIC</span> Open Mic Night!</p>
-        
-        <div class="minion-quote">
-        "Go tell your friends about it!" - Kevin (Translated)
-        </div>
-        
-        <p><strong>Date:</strong> April 1st, 2025</p>
-        <p><strong>Time:</strong> 3PM-5PM</p>
-        <p><strong>Location:</strong> STLCC Meramec Campus, Cafeteria</p>
-      </section>
-      
-      <!-- New Location Section with Map -->
-      <section>
-        <h2>Meramec Location:</h2>
-        <div class="address-container">
+        <section>
+          <div class="omn-image-container">
+            <img
+              src="../images/OMN.png"
+              alt="Open Mic Night"
+              class="omn-header-image"
+              style="width: 50%; height: auto"
+            />
+          </div>
+          <h2><span class="banana">OPEN MIC NIGHT AT MERAMEC</span></h2>
+          <p>
+            Come join the most <span class="banana">MINION-TASTIC</span> Open
+            Mic Night!
+          </p>
+
+          <div class="minion-quote">
+            "Go tell your friends about it!" - Kevin (Translated)
+          </div>
+
+          <p><strong>Date:</strong> April 1st, 2025</p>
+          <p><strong>Time:</strong> 3PM-5PM</p>
+          <p><strong>Location:</strong> STLCC Meramec Campus, Cafeteria</p>
+        </section>
+
+        <!-- New Location Section with Map -->
+        <section>
+          <h2>Meramec Location:</h2>
+          <div class="address-container">
             <i class="fas fa-map-marker-alt"></i>
             <strong>Address:</strong> 11333 Big Bend Rd, Kirkwood, MO 63122
           </div>
-          
+
           <!-- Embedded Google Map -->
           <div class="map-container">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3118.097051547762!2d-90.4094384234092!3d38.5787977713279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8cce8e64d7bf5%3A0x893a7e0304c9253f!2s11333%20Big%20Bend%20Rd%2C%20St.%20Louis%2C%20MO%2063122!5e0!3m2!1sen!2sus!4v1710097207688!5m2!1sen!2sus" 
-              width="600" 
-              height="450" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3118.097051547762!2d-90.4094384234092!3d38.5787977713279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8cce8e64d7bf5%3A0x893a7e0304c9253f!2s11333%20Big%20Bend%20Rd%2C%20St.%20Louis%2C%20MO%2063122!5e0!3m2!1sen!2sus!4v1710097207688!5m2!1sen!2sus"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
             </iframe>
           </div>
-          
+
           <!-- Link to open in Google Maps -->
-          <div style="text-align: center; margin-top: 10px;">
-            <a href="https://www.google.com/maps?q=11333+Big+Bend+Rd,+Kirkwood,+MO+63122" target="_blank" class="map-link">
+          <div style="text-align: center; margin-top: 10px">
+            <a
+              href="https://www.google.com/maps?q=11333+Big+Bend+Rd,+Kirkwood,+MO+63122"
+              target="_blank"
+              class="map-link"
+            >
               <i class="fas fa-directions"></i> Get Directions on Google Maps
             </a>
           </div>
         </section>
-        
+
         <section>
           <h2>What to Expect</h2>
           <ul class="minion-list">
             <li class="highlight-item">
-              <span class="event-detail"><i class="fas fa-paint-brush"></i> DECOR:</span>
+              <span class="event-detail"
+                ><i class="fas fa-paint-brush"></i> DECOR:</span
+              >
               <span>Minion-themed decorations everywhere!</span>
             </li>
             <li class="highlight-item">
-              <span class="event-detail"><i class="fas fa-utensils"></i> FREE FOOD:</span>
+              <span class="event-detail"
+                ><i class="fas fa-utensils"></i> FREE FOOD:</span
+              >
               <span>Snacks and Refreshments from Canes and Dominos</span>
             </li>
             <li>
-              <span class="event-detail"><i class="fas fa-music"></i> TALENTS:</span>
-              <span>Anything Auditory or Visionary. Sing, dance, recite poetry... etc.</span>
-            </li>
-              <li>
-              <span class="event-detail"><i class="fas fa-microphone"></i> EQUIPMENT:</span>
-              <span>Microphone, speakers, and basic instruments provided. Can bring your own but it will be part of your 5 minute max time frame to set it up</span>
-            </li>
-            <li class="highlight-item">
-              <span class="event-detail"><i class="fas fa-trophy"></i> WINNERS:</span>
-              <span>3 winners for Popular Performance Prizes: 4 winners for Raffle Prizes</span>
+              <span class="event-detail"
+                ><i class="fas fa-music"></i> TALENTS:</span
+              >
+              <span
+                >Anything Auditory or Visionary. Sing, dance, recite poetry...
+                etc.</span
+              >
             </li>
             <li>
-              <span class="event-detail"><i class="fas fa-gamepad"></i> ACTIVITIES:</span>
+              <span class="event-detail"
+                ><i class="fas fa-microphone"></i> EQUIPMENT:</span
+              >
+              <span
+                >Microphone, speakers, and basic instruments provided. Can bring
+                your own but it will be part of your 5 minute max time frame to
+                set it up</span
+              >
+            </li>
+            <li class="highlight-item">
+              <span class="event-detail"
+                ><i class="fas fa-trophy"></i> WINNERS:</span
+              >
+              <span
+                >3 winners for Popular Performance Prizes: 4 winners for Raffle
+                Prizes</span
+              >
+            </li>
+            <li>
+              <span class="event-detail"
+                ><i class="fas fa-gamepad"></i> ACTIVITIES:</span
+              >
               <span>Photobooth, Fingerpaint Art, Raffle, Fun!</span>
             </li>
           </ul>
-          
+
           <!-- Food image moved here - between bullet points and prize buttons -->
           <div class="food-image-container">
-            <img src="../images/CanesAndDominos.png" alt="Minion enjoying food" 
-              style="width: 200px; height: 120px; object-fit: cover; object-position: center; border-radius: 10px; border: 3px dashed var(--minion-blue);
-               box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            <img
+              src="../images/CanesAndDominos.png"
+              alt="Minion enjoying food"
+              style="
+                width: 200px;
+                height: 120px;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 10px;
+                border: 3px dashed var(--minion-blue);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+              "
+            />
           </div>
-          
+
           <!-- Popular performances prize -->
           <div class="prize-container">
-            <a href="../prizes_pages/popprizes.html" class="map-link prize-button">
-              <i class="fas fa-gift fa-bounce"></i> 
+            <a
+              href="../prizes_pages/popprizes.html"
+              class="map-link prize-button"
+            >
+              <i class="fas fa-gift fa-bounce"></i>
               <span class="prize-text">POPULAR PERFORMANCE PRIZES!</span>
               <span class="shine"></span>
             </a>
           </div>
-          
+
           <!-- Raffle chances prize -->
           <div class="prize-container">
-            <a href="../prizes_pages/raffleprizes.html" class="map-link prize-button">
-              <i class="fas fa-gift fa-bounce"></i> 
+            <a
+              href="../prizes_pages/raffleprizes.html"
+              class="map-link prize-button"
+            >
+              <i class="fas fa-gift fa-bounce"></i>
               <span class="prize-text">RAFFLE PRIZES!</span>
               <span class="shine"></span>
             </a>
           </div>
         </section>
-        
+
         <!-- Minion Rules moved to its own section -->
         <section>
           <h2>Minion Rules</h2>
           <ul class="minion-list">
             <li>
-              <span class="event-detail"><i class="fas fa-clipboard-list"></i> SIGN-UP:</span>
+              <span class="event-detail"
+                ><i class="fas fa-clipboard-list"></i> SIGN-UP:</span
+              >
               <span>Register at the event, first come first served</span>
             </li>
             <li class="highlight-item">
-              <span class="event-detail"><i class="fas fa-stopwatch"></i> TIME LIMIT:</span>
+              <span class="event-detail"
+                ><i class="fas fa-stopwatch"></i> TIME LIMIT:</span
+              >
               <span>5 minutes MAX per performance</span>
             </li>
             <li class="highlight-item">
-              <span class="event-detail"><i class="fas fa-handshake"></i> RESPECT:</span>
+              <span class="event-detail"
+                ><i class="fas fa-handshake"></i> RESPECT:</span
+              >
               <span>Be supportive of all performers</span>
             </li>
             <li class="highlight-item">
-              <span class="event-detail"><i class="fas fa-filter"></i> CONTENT:</span>
-              <span>No overtly political, racist, and sexist content allowed</span>
+              <span class="event-detail"
+                ><i class="fas fa-filter"></i> CONTENT:</span
+              >
+              <span
+                >No overtly political, racist, and sexist content allowed</span
+              >
             </li>
           </ul>
         </section>
@@ -734,7 +837,7 @@
         <p>Bello! Created by Programming Club at Meramec &copy; 2025</p>
       </footer>
     </div>
-    
+
     <!-- Music Player that follows user -->
     <div class="music-player" id="musicPlayer">
       <div class="minion-dance" id="minionDance"></div>
@@ -754,25 +857,25 @@
 
     <script>
       // IMPROVED COUNTDOWN TIMER WITH ONLINE DATE SYNC
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         // Explicitly set target date as April 1st, 2025 at 3PM CDT (UTC-5)
-        const targetDate = new Date('2025-04-01T15:00:00-05:00');
-        
+        const targetDate = new Date("2025-04-01T15:00:00-05:00");
+
         // DOM elements
-        const daysElement = document.getElementById('countdown-days');
-        const hoursElement = document.getElementById('countdown-hours');
-        const minutesElement = document.getElementById('countdown-minutes');
-        const secondsElement = document.getElementById('countdown-seconds');
-        const daysDisplay = document.getElementById('countdown-days-display');
-        const hmsDisplay = document.getElementById('countdown-hms-display');
-        
+        const daysElement = document.getElementById("countdown-days");
+        const hoursElement = document.getElementById("countdown-hours");
+        const minutesElement = document.getElementById("countdown-minutes");
+        const secondsElement = document.getElementById("countdown-seconds");
+        const daysDisplay = document.getElementById("countdown-days-display");
+        const hmsDisplay = document.getElementById("countdown-hms-display");
+
         // Time offset between local time and server time (initially 0)
         let timeOffset = 0;
-        
+
         // Sync with worldtimeapi.org to get accurate time
-        fetch('https://worldtimeapi.org/api/ip')
-          .then(response => response.json())
-          .then(data => {
+        fetch("https://worldtimeapi.org/api/ip")
+          .then((response) => response.json())
+          .then((data) => {
             // Get the server time
             const serverTime = new Date(data.datetime);
             // Calculate offset between server time and local time
@@ -781,83 +884,86 @@
             // Update countdown immediately after sync
             updateCountdown();
           })
-          .catch(error => {
+          .catch((error) => {
             console.error("Error fetching time from API:", error);
             // Continue with local time if API fails
             updateCountdown();
           });
-        
+
         function updateCountdown() {
           // Get current date and time (with server offset applied)
           const now = new Date(new Date().getTime() + timeOffset);
-          
+
           // Calculate time difference in milliseconds
           const diff = targetDate - now;
-          
+
           // If the event has passed
           if (diff <= 0) {
-            daysDisplay.style.display = 'none';
-            hmsDisplay.style.display = 'none';
-            document.querySelector('.countdown-message').textContent = "Event has started! 🎉";
+            daysDisplay.style.display = "none";
+            hmsDisplay.style.display = "none";
+            document.querySelector(".countdown-message").textContent =
+              "Event has started! 🎉";
             return;
           }
-          
+
           // Calculate days, hours, minutes, seconds
           const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const hours = Math.floor(
+            (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
           const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
           const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-          
+
           // Update the HTML elements
-          daysElement.textContent = days.toString().padStart(2, '0');
-          hoursElement.textContent = hours.toString().padStart(2, '0');
-          minutesElement.textContent = minutes.toString().padStart(2, '0');
-          secondsElement.textContent = seconds.toString().padStart(2, '0');
-          
+          daysElement.textContent = days.toString().padStart(2, "0");
+          hoursElement.textContent = hours.toString().padStart(2, "0");
+          minutesElement.textContent = minutes.toString().padStart(2, "0");
+          secondsElement.textContent = seconds.toString().padStart(2, "0");
+
           // Show appropriate display based on days remaining
           if (days >= 1) {
-            daysDisplay.style.display = 'flex';
-            hmsDisplay.style.display = 'flex'; // Changed to show hours along with days
+            daysDisplay.style.display = "flex";
+            hmsDisplay.style.display = "flex"; // Changed to show hours along with days
           } else {
-            daysDisplay.style.display = 'none';
-            hmsDisplay.style.display = 'flex';
+            daysDisplay.style.display = "none";
+            hmsDisplay.style.display = "flex";
           }
         }
-        
+
         // Update countdown immediately (will be refined once API responds)
         updateCountdown();
-        
+
         // Update countdown every second for accurate countdown
         setInterval(updateCountdown, 1000);
       });
 
       // COMPLETELY REVISED MUSIC PLAYER IMPLEMENTATION FOR RELIABLE PLAYBACK
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         console.log("Music player initialization starting...");
-        
+
         // Check if we're on the OMN page or related pages
-        if (!document.getElementById('musicPlayer')) {
+        if (!document.getElementById("musicPlayer")) {
           console.log("Music player elements not found on page.");
           return; // Exit if music player elements don't exist
         }
-        
+
         // List of songs - VERIFY THESE PATHS EXIST!
         const songs = [
-          { file: '../songs/Bananasong.mp3', name: 'Banana Song' },
-          { file: '../songs/weddingsong.mp3', name: 'Wedding Song' },
-          { file: '../songs/ymcasong.mp3', name: 'YMCA Minions' }
+          { file: "../songs/Bananasong.mp3", name: "Banana Song" },
+          { file: "../songs/weddingsong.mp3", name: "Wedding Song" },
+          { file: "../songs/ymcasong.mp3", name: "YMCA Minions" },
         ];
-        
+
         console.log("Songs configuration:", songs);
-        
+
         // Elements
-        const playPauseBtn = document.getElementById('playPauseBtn');
-        const stopBtn = document.getElementById('stopBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const songInfo = document.getElementById('songInfo');
-        const musicPlayer = document.getElementById('musicPlayer');
-        const minionDance = document.getElementById('minionDance');
-        
+        const playPauseBtn = document.getElementById("playPauseBtn");
+        const stopBtn = document.getElementById("stopBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const songInfo = document.getElementById("songInfo");
+        const musicPlayer = document.getElementById("musicPlayer");
+        const minionDance = document.getElementById("minionDance");
+
         // For debugging purposes - check if elements exist
         console.log("UI Elements found:", {
           playPauseBtn: !!playPauseBtn,
@@ -865,150 +971,175 @@
           nextBtn: !!nextBtn,
           songInfo: !!songInfo,
           musicPlayer: !!musicPlayer,
-          minionDance: !!minionDance
+          minionDance: !!minionDance,
         });
-        
+
         // Create Audio object with enhanced error detection
         const audio = new Audio();
-        audio.preload = 'auto';
+        audio.preload = "auto";
         audio.volume = 0.8; // Higher volume for better audibility
-        
+
         // Add these event listeners for debugging
-        audio.addEventListener('loadstart', () => console.log('Audio loadstart'));
-        audio.addEventListener('durationchange', () => console.log('Audio durationchange'));
-        audio.addEventListener('loadedmetadata', () => console.log('Audio loadedmetadata'));
-        audio.addEventListener('loadeddata', () => console.log('Audio loadeddata'));
-        audio.addEventListener('progress', () => console.log('Audio progress'));
-        audio.addEventListener('canplay', () => console.log('Audio canplay'));
-        audio.addEventListener('canplaythrough', () => console.log('Audio canplaythrough'));
-        audio.addEventListener('play', () => console.log('Audio play event'));
-        audio.addEventListener('playing', () => console.log('Audio playing'));
-        audio.addEventListener('seeking', () => console.log('Audio seeking'));
-        
+        audio.addEventListener("loadstart", () =>
+          console.log("Audio loadstart")
+        );
+        audio.addEventListener("durationchange", () =>
+          console.log("Audio durationchange")
+        );
+        audio.addEventListener("loadedmetadata", () =>
+          console.log("Audio loadedmetadata")
+        );
+        audio.addEventListener("loadeddata", () =>
+          console.log("Audio loadeddata")
+        );
+        audio.addEventListener("progress", () => console.log("Audio progress"));
+        audio.addEventListener("canplay", () => console.log("Audio canplay"));
+        audio.addEventListener("canplaythrough", () =>
+          console.log("Audio canplaythrough")
+        );
+        audio.addEventListener("play", () => console.log("Audio play event"));
+        audio.addEventListener("playing", () => console.log("Audio playing"));
+        audio.addEventListener("seeking", () => console.log("Audio seeking"));
+
         // State tracking
         let isPlaying = false;
         let currentSongIndex = -1;
         let playedSongs = [];
-        
+
         // Function to update UI based on play state
         function updatePlayerUI(isLoading = false) {
           // Get current song if available
-          const songName = currentSongIndex >= 0 ? songs[currentSongIndex].name : 'Select a song';
-          
+          const songName =
+            currentSongIndex >= 0
+              ? songs[currentSongIndex].name
+              : "Select a song";
+
           // Always show song name
           songInfo.textContent = songName;
-          
+
           // Set loading state
           if (isLoading) {
-            songInfo.classList.add('song-loading');
+            songInfo.classList.add("song-loading");
           } else {
-            songInfo.classList.remove('song-loading');
+            songInfo.classList.remove("song-loading");
           }
-          
+
           // Update play/pause button
           if (playPauseBtn) {
-            playPauseBtn.innerHTML = isPlaying 
-              ? '<i class="fas fa-pause"></i>' 
+            playPauseBtn.innerHTML = isPlaying
+              ? '<i class="fas fa-pause"></i>'
               : '<i class="fas fa-play"></i>';
           }
-          
+
           // Update dancing minion
           if (isPlaying) {
-            musicPlayer.classList.add('playing');
+            musicPlayer.classList.add("playing");
           } else {
-            musicPlayer.classList.remove('playing');
+            musicPlayer.classList.remove("playing");
           }
         }
-        
+
         // Load and play a song - completely rewritten for better reliability
         function loadAndPlaySong(index) {
-          console.log(`Attempting to load and play song index ${index}: ${songs[index].name}`);
-          
+          console.log(
+            `Attempting to load and play song index ${index}: ${songs[index].name}`
+          );
+
           // Update state
           currentSongIndex = index;
-          
+
           // Update UI to show loading state
           updatePlayerUI(true);
-          
+
           try {
             // Reset audio
             audio.pause();
             audio.currentTime = 0;
-            
+
             // Set new source
             audio.src = songs[index].file;
-            
+
             console.log(`Set audio source to: ${audio.src}`);
-            
+
             // Start loading the audio file
             audio.load();
-            
+
             // Function to actually play the song once it's loaded enough
-            const playWhenReady = function() {
+            const playWhenReady = function () {
               console.log("Audio is ready to play, attempting playback...");
-              
+
               // Remove the event listener so it only triggers once
-              audio.removeEventListener('canplaythrough', playWhenReady);
-              
+              audio.removeEventListener("canplaythrough", playWhenReady);
+
               // Play with robust error handling
               const playPromise = audio.play();
-              
+
               if (playPromise !== undefined) {
-                playPromise.then(() => {
-                  console.log("Playback started successfully!");
-                  isPlaying = true;
-                  updatePlayerUI(false);
-                }).catch(error => {
-                  console.error("Playback was prevented:", error);
-                  
-                  // Even if autoplay fails, still show the song as loaded
-                  updatePlayerUI(false);
-                  
-                  // Try playing muted (often allowed by browsers)
-                  audio.muted = true;
-                  audio.play().then(() => {
-                    console.log("Muted playback successful");
+                playPromise
+                  .then(() => {
+                    console.log("Playback started successfully!");
                     isPlaying = true;
                     updatePlayerUI(false);
-                    
-                    // Try to unmute after a short delay
-                    setTimeout(() => {
-                      audio.muted = false;
-                      console.log("Unmuted after successful muted playback");
-                    }, 1000);
-                  }).catch(mutedErr => {
-                    console.error("Even muted play failed:", mutedErr);
-                    // Keep showing song name, ready for user interaction
+                  })
+                  .catch((error) => {
+                    console.error("Playback was prevented:", error);
+
+                    // Even if autoplay fails, still show the song as loaded
                     updatePlayerUI(false);
-                    isPlaying = false;
+
+                    // Try playing muted (often allowed by browsers)
+                    audio.muted = true;
+                    audio
+                      .play()
+                      .then(() => {
+                        console.log("Muted playback successful");
+                        isPlaying = true;
+                        updatePlayerUI(false);
+
+                        // Try to unmute after a short delay
+                        setTimeout(() => {
+                          audio.muted = false;
+                          console.log(
+                            "Unmuted after successful muted playback"
+                          );
+                        }, 1000);
+                      })
+                      .catch((mutedErr) => {
+                        console.error("Even muted play failed:", mutedErr);
+                        // Keep showing song name, ready for user interaction
+                        updatePlayerUI(false);
+                        isPlaying = false;
+                      });
                   });
-                });
               }
             };
-            
+
             // Listen for canplaythrough event to know when enough data is loaded
-            audio.addEventListener('canplaythrough', playWhenReady, { once: true });
-            
+            audio.addEventListener("canplaythrough", playWhenReady, {
+              once: true,
+            });
+
             // Set a timeout in case canplaythrough never fires
             setTimeout(() => {
               if (!isPlaying) {
                 console.log("Timeout reached, trying to play anyway...");
-                audio.removeEventListener('canplaythrough', playWhenReady);
-                audio.play().catch(e => console.error("Play after timeout failed:", e));
+                audio.removeEventListener("canplaythrough", playWhenReady);
+                audio
+                  .play()
+                  .catch((e) => console.error("Play after timeout failed:", e));
               }
             }, 5000);
-            
           } catch (err) {
             console.error("Error in loadAndPlaySong:", err);
             updatePlayerUI(false);
-            
+
             // Try next song if this one fails
             setTimeout(() => {
               playNextSong();
             }, 2000);
           }
         }
-        
+
         // Get a random song index that hasn't been played yet
         function getRandomSongIndex() {
           // Reset if all songs have been played
@@ -1016,40 +1147,42 @@
             console.log("All songs have been played, resetting play history");
             playedSongs = [];
           }
-          
+
           // Get available songs (not yet played)
-          const availableSongs = songs.filter(song => !playedSongs.includes(song.file));
+          const availableSongs = songs.filter(
+            (song) => !playedSongs.includes(song.file)
+          );
           console.log(`${availableSongs.length} songs available to play next`);
-          
+
           // Pick a random one
           const randomIndex = Math.floor(Math.random() * availableSongs.length);
           const selectedSong = availableSongs[randomIndex];
-          
+
           // Track it as played
           playedSongs.push(selectedSong.file);
           console.log(`Selected song: ${selectedSong.name}`);
-          
+
           // Return the index from the original array
-          return songs.findIndex(song => song.file === selectedSong.file);
+          return songs.findIndex((song) => song.file === selectedSong.file);
         }
-        
+
         // Play the next song
         function playNextSong() {
           const nextIndex = getRandomSongIndex();
           loadAndPlaySong(nextIndex);
         }
-        
+
         // Event listeners for player controls
         if (playPauseBtn) {
-          playPauseBtn.addEventListener('click', function() {
+          playPauseBtn.addEventListener("click", function () {
             console.log("Play/pause button clicked");
-            
-            if (!audio.src || audio.src === '') {
+
+            if (!audio.src || audio.src === "") {
               console.log("No song loaded, selecting one");
               playNextSong();
               return;
             }
-            
+
             if (isPlaying) {
               console.log("Pausing current song");
               audio.pause();
@@ -1057,21 +1190,22 @@
               updatePlayerUI();
             } else {
               console.log("Resuming playback");
-              audio.play()
+              audio
+                .play()
                 .then(() => {
                   isPlaying = true;
                   updatePlayerUI();
                   console.log("Resumed successfully");
                 })
-                .catch(error => {
+                .catch((error) => {
                   console.error("Error resuming:", error);
                 });
             }
           });
         }
-        
+
         if (stopBtn) {
-          stopBtn.addEventListener('click', function() {
+          stopBtn.addEventListener("click", function () {
             console.log("Stop button clicked");
             audio.pause();
             audio.currentTime = 0;
@@ -1079,58 +1213,67 @@
             updatePlayerUI();
           });
         }
-        
+
         if (nextBtn) {
-          nextBtn.addEventListener('click', function() {
+          nextBtn.addEventListener("click", function () {
             console.log("Next button clicked");
             playNextSong();
           });
         }
-        
+
         // When song ends, play next song
-        audio.addEventListener('ended', function() {
+        audio.addEventListener("ended", function () {
           console.log("Song ended, playing next one");
           playNextSong();
         });
-        
+
         // If errors occur, try the next song
-        audio.addEventListener('error', function(e) {
+        audio.addEventListener("error", function (e) {
           console.error("Audio error occurred:", e);
-          console.error("Audio error code:", audio.error ? audio.error.code : "unknown");
-          console.error("Audio error message:", audio.error ? audio.error.message : "unknown");
+          console.error(
+            "Audio error code:",
+            audio.error ? audio.error.code : "unknown"
+          );
+          console.error(
+            "Audio error message:",
+            audio.error ? audio.error.message : "unknown"
+          );
           console.log("Trying next song after error");
           setTimeout(() => playNextSong(), 1000);
         });
-        
+
         // Add click listener to the entire document to help with autoplay policies
-        document.addEventListener('click', function handleFirstInteraction() {
+        document.addEventListener("click", function handleFirstInteraction() {
           if (!isPlaying && audio.paused && audio.src) {
             console.log("User interaction detected, trying to play audio");
-            audio.play()
+            audio
+              .play()
               .then(() => {
                 isPlaying = true;
                 updatePlayerUI();
                 console.log("Playback after user interaction successful");
-                
+
                 // Only remove listener after successful playback
-                document.removeEventListener('click', handleFirstInteraction);
+                document.removeEventListener("click", handleFirstInteraction);
               })
-              .catch(error => {
-                console.error("Still couldn't play after user interaction:", error);
+              .catch((error) => {
+                console.error(
+                  "Still couldn't play after user interaction:",
+                  error
+                );
               });
           }
         });
-        
+
         // Start playing first song after a short delay
         console.log("Setting timeout to start playback");
         setTimeout(() => {
           console.log("Initial timeout reached, attempting to play first song");
           playNextSong();
         }, 1000);
-        
+
         console.log("Music player initialization complete");
       });
-      
     </script>
   </body>
 </html>
