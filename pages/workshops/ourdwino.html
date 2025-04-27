@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">  <!-- added cool font -->
+    <style>
+    /* circuit‑board theme + menu styling */
+    body.circuit-theme {
+      background: #0b1a24 url('../../images/circuit-board-bg.png') center/cover no-repeat;
+      color: #e0f1fb;
+    }
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.7);
+      padding: 1rem 2rem;
+    }
+    .logo {
+      font-family: 'Orbitron', sans-serif; /* cool font */
+      color: #00ffdd;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #e0f1fb;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .site-nav {
+      display: flex;
+    }
+    .site-nav a {
+      margin: 0 1rem;
+      color: #e0f1fb;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+    }
+    .site-nav a.active,
+    .site-nav a:hover {
+      color: #00ffdd;
+    }
+    /* mobile */
+    @media (max-width:768px) {
+      .nav-toggle {
+        display: block;
+      }
+      .site-nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 2rem;
+        background: rgba(0,0,0,0.8);
+        padding: 1rem;
+      }
+      .site-nav.active {
+        display: flex;
+      }
+      .site-nav a {
+        margin: .5rem 0;
+      }
+    }
+    .main-content {
+      background: rgba(0,0,0,0.6);
+      padding: 2rem;
+      border-radius: 8px;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .workshop-image {
+      display: block;
+      margin: 2rem auto;
+      max-width: 100%;
+      border: 2px solid #00ffdd;
+      border-radius: 4px;
+    }
+    </style>
+</head>
+<body class="workshop-page circuit-theme">
+    <header>
+    <div class="navbar">
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/pages/info.html">Info</a></li>
+            <li><a href="/pages/links.html">Connect with Us!</a></li>
+            <li><a href="/pages/workshops.html">Workshops</a></li>
+        </ul>
+    </div>
+</header>
+
+    <div class="main-content">
+        <main class="workshop-content">
+            <!-- ...existing workshop content... -->
+            <img src="../../images/ourdwino.png" alt="Arduino Workshop" class="workshop-image"> <!-- inserted image -->
+        </main>
+    </div>
+
+    <footer>
+        <!-- ...existing code... -->
+    </footer>
+
+    <script>
+    // mobile menu toggle
+    const navToggle = document.querySelector('.nav-toggle'),
+          siteNav = document.querySelector('.site-nav');
+    navToggle.addEventListener('click', () => siteNav.classList.toggle('active'));
+
+    // highlight active link
+    document.querySelectorAll('.site-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelectorAll('.site-nav a').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+    </script>
+</body>
+</html>
