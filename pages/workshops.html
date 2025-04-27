@@ -5,6 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Workshops</title>
+    <!-- Import Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <style>
       :root {
         --button-height: 60px;
@@ -101,6 +105,72 @@
         margin-bottom: 2rem;
         color: var(--fox-white);
       }
+
+      /* Updated styles for the workshop button */
+      .workshop-button {
+          position: relative; /* Needed for the pseudo-element overlay */
+          display: inline-flex; /* Use flexbox for centering */
+          align-items: center; /* Vertically center content */
+          justify-content: center; /* Horizontally center content */
+          width: 250px;
+          height: 150px;
+          background-image: url('../images/OURdwino.png');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          border: 3px solid var(--secondary-blue); /* Added border */
+          border-radius: 10px; /* Slightly increased radius */
+          color: white;
+          text-align: center;
+          text-decoration: none;
+          font-family: "Orbitron", sans-serif; /* Apply the techy font */
+          font-optical-sizing: auto; /* Included with Orbitron import */
+          font-weight: 700; /* Make it bolder */
+          font-style: normal; /* Included with Orbitron import */
+          font-size: 1.4em; /* Adjusted font size slightly for the new font */
+          cursor: pointer;
+          /* Refined text shadow for better separation */
+          text-shadow: 0 0 8px rgba(0, 0, 0, 0.9), 1px 1px 3px rgba(0, 200, 255, 0.5);
+          transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; /* Added border-color transition */
+          margin-top: 1rem;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          overflow: hidden; /* Ensure pseudo-element respects border-radius */
+          z-index: 1; /* Ensure button context is correct */
+      }
+
+      /* Optional: Add a semi-transparent overlay for better text contrast */
+      .workshop-button::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          /* Increased overlay opacity */
+          background-color: rgba(0, 0, 0, 0.65); /* Darker semi-transparent overlay */
+          border-radius: inherit; /* Match parent's border-radius */
+          z-index: -1; /* Place it behind the text but above the background image */
+          transition: background-color 0.2s ease; /* Smooth transition for hover */
+      }
+
+      /* Style the text container (the <a> tag itself) */
+      .workshop-button span { /* Wrap text in span if needed, but direct text works too */
+          position: relative; /* Ensure text is above the overlay */
+          z-index: 1;
+      }
+
+
+      .workshop-button:hover {
+          transform: scale(1.03);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+          filter: brightness(1.1); /* Keep brightness effect if desired */
+          border-color: var(--fox-orange); /* Change border color on hover */
+      }
+
+      .workshop-button:hover::before {
+          /* Increased hover overlay opacity */
+          background-color: rgba(0, 0, 0, 0.75); /* Slightly darker overlay on hover */
+      }
     </style>
   </head>
   <body>
@@ -127,6 +197,15 @@
           workshops below.
         </p>
       </div>
+
+      <!-- Added Workshop Button -->
+      <div style="text-align: center;"> <!-- Center the button -->
+        <a href="/pages/ourdwino.html" class="workshop-button">
+            Arduino Workshop
+        </a>
+      </div>
+      <!-- Add more workshop buttons or content here -->
+
     </div>
-  </body>
+  </span></body>
 </html>
