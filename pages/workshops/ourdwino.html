@@ -79,6 +79,31 @@
       border: 2px solid #00ffdd;
       border-radius: 4px;
     }
+    .workshop-info {
+      background: rgba(0,0,0,0.5);
+      margin: 2rem auto;
+      padding: 1.5rem;
+      border: 2px solid #00ffdd;
+      border-radius: 8px;
+      color: #e0f1fb;
+      max-width: 900px;
+    }
+    .workshop-info h2 {
+      margin-top: 0;
+      font-family: 'Orbitron', sans-serif;
+      color: #00ffdd;
+    }
+    .workshop-info p,
+    .workshop-info ul {
+      margin: 1rem 0;
+      line-height: 1.4;
+    }
+    .workshop-info ul {
+      list-style: disc inside;
+    }
+    .workshop-info ul li {
+      margin: 0.5rem 0;
+    }
     </style>
 </head>
 <body class="workshop-page circuit-theme">
@@ -97,6 +122,18 @@
         <main class="workshop-content">
             <!-- ...existing workshop content... -->
             <img src="/images/ourdwino.png" alt="Arduino Workshop" class="workshop-image"> <!-- inserted image -->
+
+            <!-- added Arduino information section -->
+            <div class="workshop-info">
+              <h2>Arduino Overview</h2>
+              <p><strong>What is Arduino?</strong> Arduino is an open‑source electronics platform based on easy‑to‑use hardware and software. It’s ideal for building interactive projects.</p>
+              <p><strong>Key Components:</strong></p>
+              <ul>
+                <li><strong>Microcontroller:</strong> The brain that runs your code.</li>
+                <li><strong>I/O Pins:</strong> Digital and analog pins to read sensors and control devices.</li>
+                <li><strong>Power:</strong> USB or external supply to power your board.</li>
+              </ul>
+            </div>
         </main>
     </div>
 
